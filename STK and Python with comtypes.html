@@ -11687,174 +11687,6 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
-<style type="text/css">
-    /*
-
-    Name:       Base16 Twilight Dark
-    Author:     David Hart (http://hart-dev.com)
-
-    CodeMirror template adapted for IPython Notebook by Nikhil Sonnad (https://github.com/nsonnad/base16-ipython-notebook)
-    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-chrome-devtools)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
-*/
-
-
-/* Uncomment to use a custom font */
-div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt {
-  font-family: 'M+ 1m light', monospace !important;
-}
-
-
-/*Sherif's customizations*/
-
-/*Otherwise, a lot of backgrounds are white.*/
-div#notebook {background-color: #1e1e1e; border-top: none;}
-div#notebook-container {background-color: #1e1e1e;}
-
-/*Don't need to see jupyter logo, filename, last saved, etc.*/
-div#header-container { display: none; }
-
-div.prompt.input_prompt { font-size: 10px; }
-div.prompt.output_prompt { font-size: 10px; }
-
-/*This prevents scrollable output from having an ugly grey
-shadow around it*/
-div.output.output_scroll {
-    box-shadow: none;
-}
-
-/*Scroll bars*/
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background: #484848;
-}
-::-webkit-scrollbar-thumb:window-inactive {
-	background: #484848;
-}
-
-/* give strings a bit of highlight */
-.cm-s-ipython span.cm-string {
-    color: #f9ee98;
-    padding-left: 2px;
-    padding-right: 2px;
-    background-color: rgba(249, 238, 152, 0.05);
-    border-radius: 3px;
-}
-
-/* Make comments grey, not italic, and give them an easy background */
-.cm-s-ipython span.cm-comment {
-    color: #838383;
-    padding-left: 2px;
-    padding-right: 2px;
-    background-color: rgba(223, 223, 223, .05);
-    font-style: normal;
-    border-radius: 3px;
-}
-
-/* Make ` ` code blocks look better than black text with white background */
-.rendered_html code {
-    padding-left: 3px;
-    padding-right: 3px;
-    background-color: black;
-    border-style: solid;
-    border-width: 1px;
-    color: #53a1fe;
-}
-
-/* give plots a non-black background so that black text and labels are visible */
-div.output_area img, div.output_area svg {
-    background-color: lightblue;
-}
-
-/*########################*/
-
-
-/* GLOBALS */
-body {background-color: #1e1e1e;}
-a {color: #7587a6;}
-
-/* INTRO PAGE */
-.toolbar_info, .list_container {color: #c3c3c3;}
-
-/* list of notebooks */
-div.list_item.row:hover {
-    background-color: DarkSlateGray;
-}
-
-div.dynamic-instructions {
-    color: white;
-}
-
-/* NOTEBOOK */
-
-/* comment out this line to bring the toolbar back */
-/*div#maintoolbar, div#header {display: none !important;}*/
-
-div.input_prompt {color: #9b703f;}
-div.output_prompt {color: #9b859d;}
-div.input_area {
-  background: DarkGray;
-  border-radius: 0px;
-  border: 1px solid #464b50;
-}
-div.output_area pre {font-weight: normal; color: #a7a7a7;}
-div.output_subarea {font-weight: normal; color: #a7a7a7;}
-
-.rendered_html table, .rendered_html th, .rendered_html tr, .rendered_html td {
-  border: 1px  #a7a7a7 solid;
-  color: #a7a7a7;
-}
-div.output_html { font-family: sans-serif; }
-table.dataframe tr {border: 1px #a7a7a7;}
-
-div.cell.selected {border-radius: 0px;}
-div.cell.edit_mode {border-radius: 0px; border: thin solid #9b859d;}
-div.text_cell_render, div.output_html {color: #a7a7a7;}
-
-span.ansiblack {color: #323537;}
-span.ansiblue {color: #afc4db;}
-span.ansigray {color: #838184;}
-span.ansigreen {color: #8f9d6a;}
-span.ansipurple {color: #9b859d;}
-span.ansired {color: #cf6a4c;}
-span.ansiyellow {color: #f9ee98;}
-
-div.output_stderr {background-color: #cf6a4c;}
-div.output_stderr pre {color: #c3c3c3;}
-
-.cm-s-ipython.CodeMirror {background: #1e1e1e; color: #c3c3c3;}
-.cm-s-ipython div.CodeMirror-selected {background: #323537 !important;}
-.cm-s-ipython .CodeMirror-gutters {background: #1e1e1e; border-right: 0px;}
-.cm-s-ipython .CodeMirror-linenumber {color: #5f5a60;}
-.cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #838184 !important;}
-
-.cm-s-ipython span.cm-atom {color: #9b859d;}
-.cm-s-ipython span.cm-number {color: #9b859d;}
-
-.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-attribute {color: #8f9d6a;}
-.cm-s-ipython span.cm-keyword {color: #cf6a4c;}
-/*.cm-s-ipython span.cm-string {color: #f9ee98;}*/
-.cm-s-ipython span.cm-operator {color: #9b703f;}
-.cm-s-ipython span.cm-builtin {color: #9b859d;}
-
-.cm-s-ipython span.cm-variable {color: #8f9d6a;}
-.cm-s-ipython span.cm-variable-2 {color: #7587a6;}
-.cm-s-ipython span.cm-def {color: #cda869;}
-.cm-s-ipython span.cm-error {background: #cf6a4c; color: #838184;}
-.cm-s-ipython span.cm-bracket {color: #a7a7a7;}
-.cm-s-ipython span.cm-tag {color: #cf6a4c;}
-.cm-s-ipython span.cm-link {color: #9b859d;}
-
-.cm-s-ipython .CodeMirror-matchingbracket { text-decoration: underline; color: #c3c3c3 !important;}
-
-    </style>
 
 
 <style type="text/css">
@@ -11916,14 +11748,30 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nbpresent</span>
-<span class="c1"># nbpresent.__version__</span>
+<span class="n">nbpresent</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;3.0.2&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11957,14 +11805,38 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">win32api</span> <span class="k">import</span> <span class="n">GetSystemMetrics</span>
 <span class="kn">import</span> <span class="nn">comtypes</span>
 <span class="kn">from</span> <span class="nn">comtypes.client</span> <span class="k">import</span> <span class="n">CreateObject</span>
+</pre></div>
 
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">comtypes.gen</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
 <span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">os</span>
 </pre></div>
 
@@ -11984,7 +11856,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;STK11.Application&quot;</span><span class="p">)</span>
@@ -12027,7 +11899,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
@@ -12041,7 +11913,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12076,7 +11948,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Visible</span><span class="o">=</span><span class="kc">True</span>
@@ -12100,7 +11972,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Top</span><span class="o">=</span><span class="mi">0</span>
@@ -12127,7 +11999,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">Personality2</span>
@@ -12144,9 +12016,9 @@ In AGI terms, we refer to the particular version of the structure of that Object
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre># Generating comtypes.gen._D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0
-# Generating comtypes.gen._8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0
 # Generating comtypes.gen._00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0
 # Generating comtypes.gen.STKUtil
+# Generating comtypes.gen._8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0
 # Generating comtypes.gen.AgSTKVgtLib
 # Generating comtypes.gen._42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0
 # Generating comtypes.gen.AgSTKGraphicsLib
@@ -12177,7 +12049,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span>
@@ -12191,7 +12063,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12206,7 +12078,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span><span class="p">)</span>
@@ -12220,7 +12092,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[58]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12238,6 +12110,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
  &#39;_8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0.py&#39;,
  &#39;_9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0.py&#39;,
  &#39;_D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0.py&#39;,
+ &#39;__init__.py&#39;,
  &#39;__pycache__&#39;]</pre>
 </div>
 
@@ -12270,7 +12143,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -12284,7 +12157,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12319,7 +12192,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">comtypes.gen</span> <span class="k">import</span> <span class="n">STKUtil</span>
@@ -12342,7 +12215,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">NewScenario</span><span class="p">(</span><span class="s2">&quot;IPython_DIY&quot;</span><span class="p">)</span>
@@ -12356,16 +12229,13 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">COMError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-59-760990aa65ea&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>sc<span class="ansi-yellow-intense-fg ansi-bold">=</span>root<span class="ansi-yellow-intense-fg ansi-bold">.</span>NewScenario<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;IPython_DIY&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
-<span class="ansi-red-fg">COMError</span>: (-2147220982, &#39;A subscription cannot be stored unless its event class already exists&#39;, (&#39;Scenario /Application/STK/Scenario/IPython_DIY Already exists, cannot have multiple Scenarios&#39;, &#39;AgStkObjects11.AgStkObjectRoot.1&#39;, None, 0, None))</pre>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
 </div>
+
 </div>
 
 </div>
@@ -12384,7 +12254,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">CurrentScenario</span>
@@ -12397,7 +12267,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
@@ -12411,7 +12281,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12439,7 +12309,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgScenario</span><span class="p">)</span>
@@ -12454,7 +12324,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12483,7 +12353,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">.</span><span class="n">SetTimePeriod</span><span class="p">(</span><span class="s2">&quot;10 Jun 2016 04:00:00&quot;</span><span class="p">,</span><span class="s2">&quot;11 Jun 2016 04:00:00&quot;</span><span class="p">)</span>
@@ -12533,7 +12403,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac</span><span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eFacility</span><span class="p">,</span><span class="s2">&quot;codeFacility&quot;</span><span class="p">)</span>
@@ -12556,7 +12426,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac2</span> <span class="o">=</span> <span class="n">fac</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgFacility</span><span class="p">)</span>
@@ -12571,7 +12441,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[63]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12624,7 +12494,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSatellite</span><span class="p">,</span> <span class="s2">&quot;codeSat&quot;</span><span class="p">)</span>
@@ -12682,7 +12552,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">PropagatorSupportedTypes</span>
@@ -12696,7 +12566,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[69]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12736,13 +12606,29 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">SetPropagatorType</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">ePropagatorJ2Perturbation</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12759,7 +12645,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span> <span class="o">=</span> <span class="n">sat2</span><span class="o">.</span><span class="n">Propagator</span>
@@ -12772,7 +12658,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
@@ -12786,7 +12672,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12818,7 +12704,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">=</span><span class="n">satProp</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgVePropagatorJ2Perturbation</span><span class="p">)</span>
@@ -12833,7 +12719,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[72]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12875,7 +12761,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./images/IAgVePropagator.svg" /></p>
+<p><img src="./images/IAgVePropagator.png" /></p>
 <p>This visual is derived from the published PDF of the STKv11.1 Object Model Diagram found <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/ObjectModel/pdf/ObjectModel_diagram.pdf">here</a></p>
 
 </div>
@@ -12897,7 +12783,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Epoch</span><span class="o">=</span><span class="s2">&quot;08 Jun 2016 15:14:26&quot;</span>
@@ -12923,7 +12809,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="p">)</span>
@@ -12937,11 +12823,11 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[86]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;POINTER(IAgOrbitState) ptr=0x9de1d78 at 88e7748&gt;</pre>
+<pre>comtypes.POINTER(IAgOrbitState)</pre>
 </div>
 
 </div>
@@ -12962,7 +12848,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian</span> <span class="o">=</span> <span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">ConvertTo</span><span class="p">(</span><span class="n">STKUtil</span><span class="o">.</span><span class="n">eOrbitStateClassical</span><span class="p">)</span>
@@ -12975,7 +12861,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
@@ -12989,7 +12875,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[88]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13016,7 +12902,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span> <span class="o">=</span> <span class="n">keplerian</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrbitStateClassical</span><span class="p">)</span>
@@ -13039,7 +12925,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShapeType</span> <span class="o">=</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSizeShapeMeanMotion</span>
@@ -13066,7 +12952,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;revs&#39;</span><span class="p">)</span>
@@ -13081,7 +12967,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[95]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13107,7 +12993,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="p">)</span>
@@ -13121,7 +13007,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[129]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13159,7 +13045,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">MeanMotion</span> <span class="o">=</span> <span class="mf">15.08385840</span>
@@ -13172,7 +13058,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">Eccentricity</span> <span class="o">=</span> <span class="mf">0.0002947</span>
@@ -13195,7 +13081,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
@@ -13222,7 +13108,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNode</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrientationAscNodeRAAN</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">315.1965</span>
@@ -13247,7 +13133,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">Assign</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
@@ -13261,7 +13147,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[136]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13286,7 +13172,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">Propagate</span><span class="p">()</span>
@@ -13300,7 +13186,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[137]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13309,6 +13195,19 @@ This sequence parallels the following GUI actions:</p>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 
