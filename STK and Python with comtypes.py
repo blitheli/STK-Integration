@@ -12,6 +12,7 @@ nbpresent.__version__
 # <br/>
 # <br/>
 # ## Frank Snyder
+# <br/>
 # ### Product Evangelist - Analytical Graphics, Inc.
 # #### fsnyder@agi.com
 # #### www.agi.com
