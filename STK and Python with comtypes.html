@@ -11687,6 +11687,9 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
+<style type="text/css">
+    
+    </style>
 
 
 <style type="text/css">
@@ -11781,13 +11784,141 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="You're-going-to-need-the-following-things">You're going to need the following things<a class="anchor-link" href="#You're-going-to-need-the-following-things">&#182;</a></h2><ul>
-<li>A working instance of Python, complete with the following libraries<ul>
-<li>comtypes</li>
-<li>pandas</li>
-<li>{some other stuff}</li>
+<h1 id="Matlab-and-Python-Integration-with-STK">Matlab and Python Integration with STK<a class="anchor-link" href="#Matlab-and-Python-Integration-with-STK">&#182;</a></h1><h2 id="Frank-Snyder">Frank Snyder<a class="anchor-link" href="#Frank-Snyder">&#182;</a></h2><h3 id="Product-Evangelist">Product Evangelist<a class="anchor-link" href="#Product-Evangelist">&#182;</a></h3><h4 id="fsnyder@agi.com">fsnyder@agi.com<a class="anchor-link" href="#fsnyder@agi.com">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">- Discover how to navigate the STK API and Automate interaction with Objects and Tools in a Scenario through scientific scripting languages like MATLAB and Python<a class="anchor-link" href="#--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">- Learn how to use an interactive (REPL) interface in both languages to better understand how the STK API is organized<a class="anchor-link" href="#--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">- Determine how to leverage the iPython Notebook interface with STK to better document trade studies and present results<a class="anchor-link" href="#--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="STK-Interfaces-(over-time)">STK Interfaces (over time)<a class="anchor-link" href="#STK-Interfaces-(over-time)">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>HTML Tests with custom.css</p>
+<p>&lt;pstyle="text-align: left;"&gt;left aligned &lt;/p&gt;</p>
+<p><p style="text-align: right;">right aligned</p></p>
+<div><p>  this </p> is in the footer ID </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="In-the-beginning...">In the beginning...<a class="anchor-link" href="#In-the-beginning...">&#182;</a></h2><p><br/></p>
+<div style="width:500px; margin: 0 auto; border: 1px solid red;">
+<figure>
+  <img src="./images/InView_STKv2.0_Aug1992.png" width="100%" height="100%" style="margin: 0 auto; border: 1px solid red;"/>
+  <figcaption style="text-align: center;"><strong>STK 2.0 - The GUI</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="width:600px; margin: 0 auto; border: 1px solid red;">
+<figure>
+  <img src="./images/InView_STKv3.0_1995.png" width="85%" height="70%" style="margin: 0 auto; border: 1px solid red;"; />
+  <figcaption style="text-align: center;"><strong>STK 3.0.  NOW With Color GUI !!</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="width:800px; margin: 0 auto;">
+ <div style="width:350px; display: inline-block; float:left; margin: 0 auto; border: 1px solid red;">
+  <figure>
+   <img src="./images/InView_ColorBrowserWindow_1995.png" width="80%" height="50%" style="margin: 0 auto; border: 1px solid red;"/>
+   <figcaption style="font-size: large; text-align: center;"><strong>STK3.0 Object Browser.</strong></figcaption>
+  </figure>
+ </div><div style="width:350px; display: inline-block; float:right; margin: 0 auto; border: 1px solid red">
+  <figure>
+   <img src="./images/InView_FeedbackOnSTK3.0_IPC_1995.png" width="80%" height="50%" style="margin: 0 auto; border: 1px solid red;"/>
+   <figcaption style="font-size: large; text-align: center;"><strong>Feedback of STK3.0 IPCv2.0.<strong></figcaption>
+  </figure>
+ </div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="STK/IPC">STK/IPC<a class="anchor-link" href="#STK/IPC">&#182;</a></h2><ul>
+<li><strong>A text-based, CLI-like syntax over TCP/IP</strong><ul>
+<li><code>New / Scenario "My_New_Scenario"</code></li>
+<li><code>SetPosition */Satellite/Shuttle LLA "1 Nov 2000 04:01:00.00" -19 8 372800 -0.23 0.058 0.002</code></li>
+<li><code>Report_RM */Satellite/Shuttle Style "Lighting Times" TimePeriod "1 Nov 2000 00:00:00.00" "1 Nov 2000 04:00:00.00" TimeStep 30</code></li>
 </ul>
 </li>
+</ul>
+<h4 id="rebranded-as-&quot;STK/Connect&quot;">rebranded as "STK/Connect"<a class="anchor-link" href="#rebranded-as-&quot;STK/Connect&quot;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>PLUS: Syntax was human readable</li>
+<li><span style="background:black; color:white; padding:2px;"> MINUS: Error reporting wasn't </span></li>
+</ul>
+<ul>
+<li>PLUS: Simple to form</li>
+<li><span style="background:black; color:white;  padding:2px;"> MINUS: Limited because of Strings < 255 characters </span></li>
+</ul>
+<ul>
+<li>PLUS: "Easy" to Request Data</li>
+<li><span style="background:black; color:white; padding:2px; "> MINUS: Parsing Returned Data was "hard" </span></li>
 </ul>
 
 </div>
@@ -11798,7 +11929,77 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First we import references to <code>comtypes</code>, and specifically the <code>CreateObject()</code> method</p>
+<p>"Connect" drove the Comp-Sci guys nuts...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="~2002/'03---STKv5.0">~2002/'03 - STKv5.0<a class="anchor-link" href="#~2002/'03---STKv5.0">&#182;</a></h2><p><div style="width:600px;  margin: 0 auto;border: 1px solid red;">
+ <figure>
+  <img src="./images/InView_ExperienceSTK5.0_UC2003.png"  width="100%" height="70%" style="margin: 0 auto; border: 1px solid red;"/>
+  <figcaption style="text-align: center;"><strong>STK 5.0 Object Model</strong></figcaption>
+ </figure>
+</div></p>
+<h3 id="The-STK-Object-Model">The STK Object Model<a class="anchor-link" href="#The-STK-Object-Model">&#182;</a></h3><ul>
+<li>Windows COM based</li>
+<li>Classes/Interfaces/Events</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="But-how-to-organize-it-?">But how to organize it ?<a class="anchor-link" href="#But-how-to-organize-it-?">&#182;</a></h2><div style="width:200px; margin: 0 auto;border: 1px solid red;">
+ <figure>
+  <img src="./images/chicken-or-egg.png" width="90%" height="80%"  style="margin: 0 auto; border: 1px solid red;"/>
+  <figcaption style="text-align: center;"><strong>Which Comes FIRST?</strong></figcaption>
+ </figure>
+</div><h2 id="Go-back-to-the-begining...--The-GUI-!!">Go back to the begining...  The GUI !!<a class="anchor-link" href="#Go-back-to-the-begining...--The-GUI-!!">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Coding-Environments">Coding Environments<a class="anchor-link" href="#Coding-Environments">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="We're-going-to-need-the-following-things:">We're going to need the following things:<a class="anchor-link" href="#We're-going-to-need-the-following-things:">&#182;</a></h2><h3 id="--A-working-instance-of-Python,-complete-with-the-following-modules">- A working instance of Python, complete with the following modules<a class="anchor-link" href="#--A-working-instance-of-Python,-complete-with-the-following-modules">&#182;</a></h3><ul>
+<li>comtypes, pandas, IPython as well as a working Jupyter Notebooks environment</li>
+</ul>
+<p>The simplest way to set up the right kind of Python environment is to download the Anaconda Python installer from Continuum Analytics <a href="https://www.continuum.io/downloads">here</a>. Not only is it extremely complete in terms of useful scientific libraries, it's <strong>Free</strong> and properly licensed for both Personal as well as Commercial Use, including redistribution.
+We'll pick the right 32/64-bit version for our Windows Operating System, and it's highly recommend to stick with the Python 3.5 version (unless there is a specific dependency that's known already to have to use Python 2.7)
+It's also recommended to let the installer default to installing in the local user folders rather than in a Global {Program Files} kind of location.  <em>This avoids the need to have Administrative priviledges to perform the install.</em></p>
+<h3 id="--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">- A properly installed, and licensed, instance of STKv11.1, which can be requested <a href="http://www.agi.com/products/stk/license/">here</a>.<a class="anchor-link" href="#--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">&#182;</a></h3><ul>
+<li>Specifically we will need the STK/Integration License which activates the STK API for use by external environments, like Python|Matlab|Java|etc...</li>
+</ul>
+<h3 id="--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">- A working internet connection if you wish to explore the STK Online documentation linked below in this Notebook<a class="anchor-link" href="#--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First we set up a few imports to gain access to their nested properties and functions.</p>
 
 </div>
 </div>
@@ -11809,34 +12010,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">win32api</span> <span class="k">import</span> <span class="n">GetSystemMetrics</span>
-<span class="kn">import</span> <span class="nn">comtypes</span>
-<span class="kn">from</span> <span class="nn">comtypes.client</span> <span class="k">import</span> <span class="n">CreateObject</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">comtypes.gen</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
 <span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">os</span>
 </pre></div>
 
@@ -11850,38 +12024,21 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Let's-start-by-setting-up-the-STK-(AgUiApplication)-Application">Let's start by setting up the STK (AgUiApplication) Application<a class="anchor-link" href="#Let's-start-by-setting-up-the-STK-(AgUiApplication)-Application">&#182;</a></h3>
+<p>Now we need to import references to <code>comtypes</code> and some of it's methods so we can tie to the STK COM-based objects.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;STK11.Application&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">comtypes</span>
+<span class="kn">from</span> <span class="nn">comtypes.client</span> <span class="k">import</span> <span class="n">CreateObject</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre># Generating comtypes.gen._781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0
-# Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
-# Generating comtypes.gen.stdole
-# Generating comtypes.gen._9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0
-# Generating comtypes.gen.AgUiCoreLib
-# Generating comtypes.gen.AgUiApplicationLib
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11891,6 +12048,37 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">Let's start by creating a new running instance of the STK (AgUiApplication) Application<a class="anchor-link" href="#Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;STK11.Application&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If this is the first time you're running this Notebook against STKv11.1, you might see the following:</p>
+
+<pre><code># Generating comtypes.gen._781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0
+# Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+# Generating comtypes.gen.stdole
+# Generating comtypes.gen._9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0
+# Generating comtypes.gen.AgUiCoreLib
+# Generating comtypes.gen.AgUiApplicationLib</code></pre>
+<p>as <code>comtypes</code> generates Python "wrappers" around the Classes and Interfaces found at the <strong><em>AgUiApplication</em></strong> level.</p>
 <p>let's check what kind of object we've been given back. To do that we can use the Python <code>type()</code>
 call and pass in the variable referencing the object we're interested in.</p>
 
@@ -11899,7 +12087,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
@@ -11913,7 +12101,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11948,7 +12136,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Visible</span><span class="o">=</span><span class="kc">True</span>
@@ -11972,7 +12160,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Top</span><span class="o">=</span><span class="mi">0</span>
@@ -11999,7 +12187,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">Personality2</span>
@@ -12009,35 +12197,23 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre># Generating comtypes.gen._D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0
-# Generating comtypes.gen._00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0
-# Generating comtypes.gen.STKUtil
-# Generating comtypes.gen._8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0
-# Generating comtypes.gen.AgSTKVgtLib
-# Generating comtypes.gen._42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0
-# Generating comtypes.gen.AgSTKGraphicsLib
-# Generating comtypes.gen.STKObjects
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If this is the first time you've run this Notebook, you'll see how the Python <code>comtypes</code> module generates Python "wrappers" around the Objects that are defined in the STK Object Model Tree.
-Two of the top-level ones we care about, and will be using repeatedly through our introductory exploration of the STK Object Model API are:</p>
+<p>If this is the first time you've run this Notebook, you'll see how the Python <code>comtypes</code> module generates Python "wrappers" around the rest of the Classes and Interfaces that are defined in the STK Object Model Tree, from the root level on down:</p>
+
+<pre><code># Generating comtypes.gen._D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0
+# Generating comtypes.gen._00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0
+# Generating comtypes.gen.STKUtil
+# Generating comtypes.gen._8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0
+# Generating comtypes.gen.AgSTKVgtLib
+# Generating comtypes.gen._42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0
+# Generating comtypes.gen.AgSTKGraphicsLib
+# Generating comtypes.gen.STKObjects</code></pre>
+<p>Two of the top-level ones we care about, and will be using repeatedly through our introductory exploration of the STK Object Model API are:</p>
 <ul>
 <li><strong>STKUtil</strong></li>
 <li><strong>STKObjects</strong></li>
@@ -12049,7 +12225,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span>
@@ -12063,7 +12239,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12078,7 +12254,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span><span class="p">)</span>
@@ -12092,7 +12268,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12143,7 +12319,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -12157,7 +12333,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12185,14 +12361,14 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we're going to assign two new variables to the autogenerated Python wrappers of the STK Classes found in <code>comtypes.gen.STKObjects</code> and <code>comtypes.gen.STKUtil</code>.  These will be useful when transitioning between Interfaces exposed by each STK object we will use, as well as all the readable Enumerations (ex. eScenario = 19)</p>
+<p>wNext, we're going to assign two new variables to the autogenerated Python wrappers of the STK Classes found in <code>comtypes.gen.STKObjects</code> and <code>comtypes.gen.STKUtil</code>.  These will be useful when transitioning between Interfaces exposed by each STK object we will use, as well as all the readable Enumerations (ex. eScenario = 19)</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">comtypes.gen</span> <span class="k">import</span> <span class="n">STKUtil</span>
@@ -12215,7 +12391,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">NewScenario</span><span class="p">(</span><span class="s2">&quot;IPython_DIY&quot;</span><span class="p">)</span>
@@ -12229,7 +12405,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12254,7 +12430,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">CurrentScenario</span>
@@ -12267,7 +12443,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
@@ -12281,7 +12457,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12309,7 +12485,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgScenario</span><span class="p">)</span>
@@ -12324,7 +12500,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12353,7 +12529,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">.</span><span class="n">SetTimePeriod</span><span class="p">(</span><span class="s2">&quot;10 Jun 2016 04:00:00&quot;</span><span class="p">,</span><span class="s2">&quot;11 Jun 2016 04:00:00&quot;</span><span class="p">)</span>
@@ -12403,7 +12579,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac</span><span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eFacility</span><span class="p">,</span><span class="s2">&quot;codeFacility&quot;</span><span class="p">)</span>
@@ -12426,7 +12602,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac2</span> <span class="o">=</span> <span class="n">fac</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgFacility</span><span class="p">)</span>
@@ -12441,7 +12617,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12494,7 +12670,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSatellite</span><span class="p">,</span> <span class="s2">&quot;codeSat&quot;</span><span class="p">)</span>
@@ -12552,7 +12728,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">PropagatorSupportedTypes</span>
@@ -12566,7 +12742,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12606,7 +12782,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">SetPropagatorType</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">ePropagatorJ2Perturbation</span><span class="p">)</span>
@@ -12620,7 +12796,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12645,7 +12821,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span> <span class="o">=</span> <span class="n">sat2</span><span class="o">.</span><span class="n">Propagator</span>
@@ -12658,7 +12834,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
@@ -12672,7 +12848,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12704,7 +12880,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">=</span><span class="n">satProp</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgVePropagatorJ2Perturbation</span><span class="p">)</span>
@@ -12719,7 +12895,7 @@ Two of the top-level ones we care about, and will be using repeatedly through ou
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12783,7 +12959,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Epoch</span><span class="o">=</span><span class="s2">&quot;08 Jun 2016 15:14:26&quot;</span>
@@ -12809,7 +12985,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="p">)</span>
@@ -12823,7 +12999,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12848,7 +13024,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian</span> <span class="o">=</span> <span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">ConvertTo</span><span class="p">(</span><span class="n">STKUtil</span><span class="o">.</span><span class="n">eOrbitStateClassical</span><span class="p">)</span>
@@ -12861,7 +13037,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
@@ -12875,7 +13051,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12902,7 +13078,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span> <span class="o">=</span> <span class="n">keplerian</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrbitStateClassical</span><span class="p">)</span>
@@ -12925,7 +13101,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShapeType</span> <span class="o">=</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSizeShapeMeanMotion</span>
@@ -12952,7 +13128,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;revs&#39;</span><span class="p">)</span>
@@ -12967,7 +13143,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12993,7 +13169,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="p">)</span>
@@ -13007,7 +13183,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13045,7 +13221,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">MeanMotion</span> <span class="o">=</span> <span class="mf">15.08385840</span>
@@ -13058,7 +13234,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">Eccentricity</span> <span class="o">=</span> <span class="mf">0.0002947</span>
@@ -13081,7 +13257,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
@@ -13108,7 +13284,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNode</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrientationAscNodeRAAN</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">315.1965</span>
@@ -13133,10 +13309,49 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">Assign</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last step is to tell the Propagator to <strong><em>.Propagate</em></strong>.  Without this step, none of the position data will be calculated and the Satellite will remain in a partially configured state. All the properties will have been set, but the code used to to take those properties and calculate its position over its time span won't execute.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">Propagate</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -13165,17 +13380,43 @@ This sequence parallels the following GUI actions:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The last step is to tell the Propagator to <strong><em>.Propagate</em></strong>.  Without this step, none of the position data will be calculated and the Satellite will remain in a partially configured state. All the properties will have been set, but the code used to to take those properties and calculate its position over its time span won't execute.</p>
+<h2 id="Getting-Data-Out----Data-Providers-and-STK-GUI-Reports">Getting Data Out -  Data Providers and STK GUI Reports<a class="anchor-link" href="#Getting-Data-Out----Data-Providers-and-STK-GUI-Reports">&#182;</a></h2><h3 id="STK-Objects-and-the-Data-they-can-provide">STK Objects and the Data they can provide<a class="anchor-link" href="#STK-Objects-and-the-Data-they-can-provide">&#182;</a></h3><p>Every <strong><em>AgStkObject</em></strong>, through it's <strong><em>IAgStkObject</em></strong> interface, will expose a <strong><em>.DataProviders</em></strong> property that will return a Collection of valid DataProvider Groups for that type of object.</p>
+<p>Each <em>Item()</em> of the returned <strong><em>IAgDataProviderCollection</em></strong> conforms to an <strong><em>IAgDataProviderInfo</em></strong> interface in addition to exposing one of the three interfaces listed below.</p>
+<p>The <strong><em>IAgDataProviderInfo</em></strong> interface is another "base" and common interface that only has a few properties a single method.  Essentially, it provides the human-readable <em>Name</em> for the Data Provider as well as the <em>Type</em> of Data Provider it is.</p>
+<p>Data Providers fall into 3 basic categories, or Types:</p>
+<ul>
+<li>Static Data, defined in the <strong><em>AgDataPrvFixed</em></strong> Class and handled through the <strong><em>IAgDataPrvFixed</em></strong> Interface.<ul>
+<li>examples of this would be Fixed position information, object initial state data, and other parameters that won't vary over time.</li>
+</ul>
+</li>
+<li>Time Varying (TimeSeries) Data, defined in the <strong><em>AGDataPrvTimeVar</em></strong> Class and handled through the <strong><em>IAgDataPrvTimeVar</em></strong> Interface.<ul>
+<li>examples of this would be position data for moving vehicles reported over a time interval at specified time steps.</li>
+</ul>
+</li>
+<li>Time Intervals, defined in the <strong><em>AGDataPrvInterval</em></strong> Class and handled through the <strong><em>IAgDataPrvInterval</em></strong> Interface.<ul>
+<li>examples of this would be Start|Stop Date/Time values for one or more time intervals, such as Access, No_Access, etc...</li>
+</ul>
+</li>
+</ul>
+<p>We can better understand the organization of Groups, Data Providers, and Elements found in the Object Model follows by reviewing this structure:
+<img src="./images/Report-2-DatProvider-Structure.png"/>
+which bears a strinking similarity to the GUI layout of the Data Providers selector panel when customizing reports and graphs.
+<img src="./images/GUI_Report_DataProviders.png"/>
+So when planning to pull data from STK, it's generally a good idea to be familiar with the GUI layout prior to setting up the code.  The names, relative positions in heirarchy, and contents will all help define the Interfaces we will need to be looking to work with.</p>
+<p>For our first example, we want to ouput the <strong><em>Cartesian Position</em></strong> and <strong><em>Velocity</em></strong> of the <em>Satellite</em> that we just created.  That information will need to be specified in a particular Coordinate System, and for this report we want to use the <strong><em>J2000</em></strong> Coordinate System.</p>
+<p>Both of those data groups are Time Varying (TimeSeries) data types, so we know we'll need to work with the <strong><em>IAgDataPrvTimeVar</em></strong> interface as part of the process.</p>
+<p>So, for the velocity data we will be using is the "Cartesian Velocity" <em>Group</em> name, and below it, the "J2000" <em>Data Provider</em> Name, to hone in on the actual <em>Elements</em> {x,y,z,etc...}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">Propagate</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVel</span><span class="o">=</span><span class="n">sat</span><span class="o">.</span><span class="n">DataProviders</span><span class="p">(</span><span class="s2">&quot;Cartesian Velocity&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">cartVel</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13186,11 +13427,745 @@ This sequence parallels the following GUI actions:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[79]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<pre>comtypes.POINTER(IAgDataProviderInfo)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We've selected the "Cartesian Velocity" group, but need to cast <code>cartVel</code> to it's <strong><em>IAgDataProviderGroup</em></strong> interface to do anything usefull with it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVel</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataProviderGroup</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we can pull from the collection of DataProviders found in this Group the one named "J2000"</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s2">&quot;J2000&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[81]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>comtypes.POINTER(IAgDataProviderInfo)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>again, we get back the "default" <strong><em>IAgDataProviderInfo</em></strong> interface, which won't do us much good here.  We need to cast it to the more specific <strong><em>IAgDataPrvTimeVar</em></strong> interface because it's a Time Varying type of Data Provider, and that interface will let us specify the time span over which we want the data to be generated, as well as which specific elements we want.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000TimeVar</span> <span class="o">=</span> <span class="n">cartVelJ2000</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataPrvTimeVar</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000TimeVar</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[82]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we're going to use the <strong><em>ExecElements</em></strong> method to return ONLY the {Time,x,y,z} values rather than the entire {Time,x,y,z,speed,radial,in-track} list of <em>Elements</em> that exist for the J2000 <em>Data Provider</em> found in the Cartesian Velocity <em>Group</em>.</p>
+<p>We need to pass an list of these named Elements into the method call, so we need to create that list first.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rptElements</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we're ready to call <em>ExecElements</em> with a Starting and Ending Time exactly that of the Scenario's, and a time step between generated data points of 60 seconds.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">velResult</span><span class="o">=</span><span class="n">cartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">velResult</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[111]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>comtypes.POINTER(IAgDrResult)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[172]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="n">z</span><span class="p">});</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[172]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10 Jun 2016 04:00:00.000000000</td>
+      <td>-7.395504</td>
+      <td>-1.679681</td>
+      <td>-0.352284</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10 Jun 2016 04:01:00.000000000</td>
+      <td>-7.268032</td>
+      <td>-2.164220</td>
+      <td>-0.360397</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10 Jun 2016 04:02:00.000000000</td>
+      <td>-7.108893</td>
+      <td>-2.639318</td>
+      <td>-0.366936</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10 Jun 2016 04:03:00.000000000</td>
+      <td>-6.918784</td>
+      <td>-3.102901</td>
+      <td>-0.371871</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10 Jun 2016 04:04:00.000000000</td>
+      <td>-6.698534</td>
+      <td>-3.552951</td>
+      <td>-0.375181</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>10 Jun 2016 04:05:00.000000000</td>
+      <td>-6.449107</td>
+      <td>-3.987504</td>
+      <td>-0.376852</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>10 Jun 2016 04:06:00.000000000</td>
+      <td>-6.171591</td>
+      <td>-4.404669</td>
+      <td>-0.376877</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>10 Jun 2016 04:07:00.000000000</td>
+      <td>-5.867200</td>
+      <td>-4.802627</td>
+      <td>-0.375255</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>10 Jun 2016 04:08:00.000000000</td>
+      <td>-5.537261</td>
+      <td>-5.179645</td>
+      <td>-0.371993</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10 Jun 2016 04:09:00.000000000</td>
+      <td>-5.183216</td>
+      <td>-5.534082</td>
+      <td>-0.367108</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10 Jun 2016 04:10:00.000000000</td>
+      <td>-4.806609</td>
+      <td>-5.864396</td>
+      <td>-0.360618</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>10 Jun 2016 04:11:00.000000000</td>
+      <td>-4.409085</td>
+      <td>-6.169149</td>
+      <td>-0.352554</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>10 Jun 2016 04:12:00.000000000</td>
+      <td>-3.992377</td>
+      <td>-6.447015</td>
+      <td>-0.342951</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>10 Jun 2016 04:13:00.000000000</td>
+      <td>-3.558303</td>
+      <td>-6.696788</td>
+      <td>-0.331850</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>10 Jun 2016 04:14:00.000000000</td>
+      <td>-3.108756</td>
+      <td>-6.917381</td>
+      <td>-0.319301</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>10 Jun 2016 04:15:00.000000000</td>
+      <td>-2.645696</td>
+      <td>-7.107837</td>
+      <td>-0.305358</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>10 Jun 2016 04:16:00.000000000</td>
+      <td>-2.171141</td>
+      <td>-7.267331</td>
+      <td>-0.290082</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>10 Jun 2016 04:17:00.000000000</td>
+      <td>-1.687160</td>
+      <td>-7.395170</td>
+      <td>-0.273541</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>10 Jun 2016 04:18:00.000000000</td>
+      <td>-1.195861</td>
+      <td>-7.490802</td>
+      <td>-0.255806</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>10 Jun 2016 04:19:00.000000000</td>
+      <td>-0.699383</td>
+      <td>-7.553814</td>
+      <td>-0.236956</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>10 Jun 2016 04:20:00.000000000</td>
+      <td>-0.199890</td>
+      <td>-7.583937</td>
+      <td>-0.217072</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>10 Jun 2016 04:21:00.000000000</td>
+      <td>0.300444</td>
+      <td>-7.581041</td>
+      <td>-0.196241</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>10 Jun 2016 04:22:00.000000000</td>
+      <td>0.799442</td>
+      <td>-7.545144</td>
+      <td>-0.174556</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>10 Jun 2016 04:23:00.000000000</td>
+      <td>1.294931</td>
+      <td>-7.476406</td>
+      <td>-0.152109</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>10 Jun 2016 04:24:00.000000000</td>
+      <td>1.784757</td>
+      <td>-7.375129</td>
+      <td>-0.129000</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>10 Jun 2016 04:25:00.000000000</td>
+      <td>2.266788</td>
+      <td>-7.241758</td>
+      <td>-0.105329</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>10 Jun 2016 04:26:00.000000000</td>
+      <td>2.738929</td>
+      <td>-7.076877</td>
+      <td>-0.081200</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>10 Jun 2016 04:27:00.000000000</td>
+      <td>3.199125</td>
+      <td>-6.881205</td>
+      <td>-0.056718</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>10 Jun 2016 04:28:00.000000000</td>
+      <td>3.645378</td>
+      <td>-6.655597</td>
+      <td>-0.031989</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>10 Jun 2016 04:29:00.000000000</td>
+      <td>4.075747</td>
+      <td>-6.401038</td>
+      <td>-0.007122</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1411</th>
+      <td>11 Jun 2016 03:31:00.000000000</td>
+      <td>-4.699317</td>
+      <td>5.961488</td>
+      <td>-0.077667</td>
+    </tr>
+    <tr>
+      <th>1412</th>
+      <td>11 Jun 2016 03:32:00.000000000</td>
+      <td>-5.081787</td>
+      <td>5.638767</td>
+      <td>-0.101870</td>
+    </tr>
+    <tr>
+      <th>1413</th>
+      <td>11 Jun 2016 03:33:00.000000000</td>
+      <td>-5.442133</td>
+      <td>5.291465</td>
+      <td>-0.125629</td>
+    </tr>
+    <tr>
+      <th>1414</th>
+      <td>11 Jun 2016 03:34:00.000000000</td>
+      <td>-5.778783</td>
+      <td>4.921096</td>
+      <td>-0.148841</td>
+    </tr>
+    <tr>
+      <th>1415</th>
+      <td>11 Jun 2016 03:35:00.000000000</td>
+      <td>-6.090266</td>
+      <td>4.529271</td>
+      <td>-0.171403</td>
+    </tr>
+    <tr>
+      <th>1416</th>
+      <td>11 Jun 2016 03:36:00.000000000</td>
+      <td>-6.375224</td>
+      <td>4.117698</td>
+      <td>-0.193217</td>
+    </tr>
+    <tr>
+      <th>1417</th>
+      <td>11 Jun 2016 03:37:00.000000000</td>
+      <td>-6.632412</td>
+      <td>3.688171</td>
+      <td>-0.214187</td>
+    </tr>
+    <tr>
+      <th>1418</th>
+      <td>11 Jun 2016 03:38:00.000000000</td>
+      <td>-6.860706</td>
+      <td>3.242560</td>
+      <td>-0.234222</td>
+    </tr>
+    <tr>
+      <th>1419</th>
+      <td>11 Jun 2016 03:39:00.000000000</td>
+      <td>-7.059109</td>
+      <td>2.782810</td>
+      <td>-0.253234</td>
+    </tr>
+    <tr>
+      <th>1420</th>
+      <td>11 Jun 2016 03:40:00.000000000</td>
+      <td>-7.226756</td>
+      <td>2.310923</td>
+      <td>-0.271140</td>
+    </tr>
+    <tr>
+      <th>1421</th>
+      <td>11 Jun 2016 03:41:00.000000000</td>
+      <td>-7.362913</td>
+      <td>1.828959</td>
+      <td>-0.287862</td>
+    </tr>
+    <tr>
+      <th>1422</th>
+      <td>11 Jun 2016 03:42:00.000000000</td>
+      <td>-7.466987</td>
+      <td>1.339018</td>
+      <td>-0.303325</td>
+    </tr>
+    <tr>
+      <th>1423</th>
+      <td>11 Jun 2016 03:43:00.000000000</td>
+      <td>-7.538521</td>
+      <td>0.843237</td>
+      <td>-0.317464</td>
+    </tr>
+    <tr>
+      <th>1424</th>
+      <td>11 Jun 2016 03:44:00.000000000</td>
+      <td>-7.577205</td>
+      <td>0.343779</td>
+      <td>-0.330215</td>
+    </tr>
+    <tr>
+      <th>1425</th>
+      <td>11 Jun 2016 03:45:00.000000000</td>
+      <td>-7.582869</td>
+      <td>-0.157178</td>
+      <td>-0.341523</td>
+    </tr>
+    <tr>
+      <th>1426</th>
+      <td>11 Jun 2016 03:46:00.000000000</td>
+      <td>-7.555487</td>
+      <td>-0.657449</td>
+      <td>-0.351339</td>
+    </tr>
+    <tr>
+      <th>1427</th>
+      <td>11 Jun 2016 03:47:00.000000000</td>
+      <td>-7.495181</td>
+      <td>-1.154852</td>
+      <td>-0.359620</td>
+    </tr>
+    <tr>
+      <th>1428</th>
+      <td>11 Jun 2016 03:48:00.000000000</td>
+      <td>-7.402214</td>
+      <td>-1.647217</td>
+      <td>-0.366328</td>
+    </tr>
+    <tr>
+      <th>1429</th>
+      <td>11 Jun 2016 03:49:00.000000000</td>
+      <td>-7.276991</td>
+      <td>-2.132397</td>
+      <td>-0.371437</td>
+    </tr>
+    <tr>
+      <th>1430</th>
+      <td>11 Jun 2016 03:50:00.000000000</td>
+      <td>-7.120061</td>
+      <td>-2.608277</td>
+      <td>-0.374922</td>
+    </tr>
+    <tr>
+      <th>1431</th>
+      <td>11 Jun 2016 03:51:00.000000000</td>
+      <td>-6.932108</td>
+      <td>-3.072781</td>
+      <td>-0.376768</td>
+    </tr>
+    <tr>
+      <th>1432</th>
+      <td>11 Jun 2016 03:52:00.000000000</td>
+      <td>-6.713953</td>
+      <td>-3.523884</td>
+      <td>-0.376969</td>
+    </tr>
+    <tr>
+      <th>1433</th>
+      <td>11 Jun 2016 03:53:00.000000000</td>
+      <td>-6.466551</td>
+      <td>-3.959621</td>
+      <td>-0.375522</td>
+    </tr>
+    <tr>
+      <th>1434</th>
+      <td>11 Jun 2016 03:54:00.000000000</td>
+      <td>-6.190980</td>
+      <td>-4.378090</td>
+      <td>-0.372435</td>
+    </tr>
+    <tr>
+      <th>1435</th>
+      <td>11 Jun 2016 03:55:00.000000000</td>
+      <td>-5.888445</td>
+      <td>-4.777470</td>
+      <td>-0.367720</td>
+    </tr>
+    <tr>
+      <th>1436</th>
+      <td>11 Jun 2016 03:56:00.000000000</td>
+      <td>-5.560267</td>
+      <td>-5.156021</td>
+      <td>-0.361400</td>
+    </tr>
+    <tr>
+      <th>1437</th>
+      <td>11 Jun 2016 03:57:00.000000000</td>
+      <td>-5.207878</td>
+      <td>-5.512093</td>
+      <td>-0.353500</td>
+    </tr>
+    <tr>
+      <th>1438</th>
+      <td>11 Jun 2016 03:58:00.000000000</td>
+      <td>-4.832816</td>
+      <td>-5.844136</td>
+      <td>-0.344057</td>
+    </tr>
+    <tr>
+      <th>1439</th>
+      <td>11 Jun 2016 03:59:00.000000000</td>
+      <td>-4.436718</td>
+      <td>-6.150706</td>
+      <td>-0.333112</td>
+    </tr>
+    <tr>
+      <th>1440</th>
+      <td>11 Jun 2016 04:00:00.000000000</td>
+      <td>-4.021313</td>
+      <td>-6.430468</td>
+      <td>-0.320711</td>
+    </tr>
+  </tbody>
+</table>
+<p>1441 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[174]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[174]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;time&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], dtype=&#39;object&#39;)</pre>
 </div>
 
 </div>
@@ -13208,6 +14183,105 @@ This sequence parallels the following GUI actions:</p>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[176]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">=</span><span class="n">sat</span><span class="o">.</span><span class="n">DataProviders</span><span class="o">.</span><span class="n">GetDataPrvTimeVarFromPath</span><span class="p">(</span><span class="s2">&quot;Cartesian Velocity//J2000&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[176]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[177]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTvelResults</span><span class="o">=</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">ALTvelResults</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[177]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>comtypes.POINTER(IAgDrResult)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
