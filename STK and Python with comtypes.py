@@ -8,11 +8,14 @@ nbpresent.__version__
 
 
 # 
-# # Matlab and Python Integration with STK
+# # STK Integration with Python
+# <br/>
+# <br/>
 # ## Frank Snyder
-# ### Product Evangelist
+# ### Product Evangelist - Analytical Graphics, Inc.
 # #### fsnyder@agi.com
-# 
+# #### www.agi.com
+# https://github.com/agifsnyder/STK-Integration/
 
 # ### - Discover how to navigate the STK API and Automate interaction with Objects and Tools in a Scenario through scientific scripting languages like MATLAB and Python
 
