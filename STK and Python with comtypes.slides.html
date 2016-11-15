@@ -1,10 +1,64 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-<title>STK and Python with comtypes</title>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>STK and Python with comtypes slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11694,93 +11748,86 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
+  overflow-y: scroll;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
+</head>
+
+
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nbpresent</span>
-<span class="n">nbpresent</span><span class="o">.</span><span class="n">__version__</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;3.0.2&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><style type="text/css">
- 
-</style>
+<div class="reveal">
+<div class="slides">
+<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11793,7 +11840,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11802,7 +11849,7 @@ div#notebook {
 <h3 id="--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">- Discover how to navigate the STK API and Automate interaction with Objects and Tools in a Scenario through scientific scripting languages like MATLAB and Python<a class="anchor-link" href="#--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11811,7 +11858,7 @@ div#notebook {
 <h3 id="--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">- Learn how to use an interactive (REPL) interface in both languages to better understand how the STK API is organized<a class="anchor-link" href="#--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11820,7 +11867,7 @@ div#notebook {
 <h3 id="--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">- Determine how to leverage the iPython Notebook interface with STK to better document trade studies and present results<a class="anchor-link" href="#--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11829,7 +11876,7 @@ div#notebook {
 <h1 id="STK-Interfaces-(over-time)">STK Interfaces (over time)<a class="anchor-link" href="#STK-Interfaces-(over-time)">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11844,7 +11891,7 @@ div#notebook {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11858,7 +11905,7 @@ div#notebook {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11879,7 +11926,7 @@ div#notebook {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11896,7 +11943,7 @@ div#notebook {
 <div class="alert alert-info">rebranded as "STK/Connect"</div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11917,7 +11964,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11926,7 +11973,7 @@ div#notebook {
 <div class="alert alert-warning">"Connect" drove the Comp-Sci guys nuts...</div>
 </div>
 </div>
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11945,7 +11992,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11962,7 +12009,7 @@ div#notebook {
 <h2 id="Go-back-to-the-begining...--The-GUI-!!">Go back to the begining...  The GUI !!<a class="anchor-link" href="#Go-back-to-the-begining...--The-GUI-!!">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11974,7 +12021,7 @@ div#notebook {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11987,7 +12034,7 @@ div#notebook {
 <h3 id="STK-Object-Model-Diagrams-(online)">STK Object Model Diagrams <a href="http://help.agi.com/stkdevkit/ObjectModel/pdf/ObjectModel_diagram.pdf">(online)</a><a class="anchor-link" href="#STK-Object-Model-Diagrams-(online)">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11996,7 +12043,7 @@ div#notebook {
 <h1 id="Object-Oriented-Programming">Object-Oriented Programming<a class="anchor-link" href="#Object-Oriented-Programming">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12005,7 +12052,7 @@ div#notebook {
 <h2 id="Snyder's-(very-short)-Course-on-Object-Oriented-&quot;stuff&quot;">Snyder's (very short) Course on Object Oriented "stuff"<a class="anchor-link" href="#Snyder's-(very-short)-Course-on-Object-Oriented-&quot;stuff&quot;">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12014,7 +12061,7 @@ div#notebook {
 <h2 id="The--Edition">The <img src="images/marvel.png" style=" height: 100px; display: inline-block; margin: 0 auto; " /> Edition<a class="anchor-link" href="#The--Edition">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12023,7 +12070,7 @@ div#notebook {
 <h2 id="Objects">Objects<a class="anchor-link" href="#Objects">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12036,7 +12083,7 @@ div#notebook {
 <h3 style="text-align:center;">Object Name = **_"AgBigGuy"_**</h3>
 </div>
 </div>
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12053,7 +12100,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12081,7 +12128,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12107,7 +12154,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12116,7 +12163,7 @@ div#notebook {
 <div class="alert alert-warning">Objects are everything, but pay attention to the Interfaces</div>
 </div>
 </div>
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12129,7 +12176,7 @@ div#notebook {
 <h3 style="text-align:center;">OM... OM...</h3>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12138,7 +12185,7 @@ div#notebook {
 <h1 id="Coding-Environments">Coding Environments<a class="anchor-link" href="#Coding-Environments">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12152,7 +12199,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12175,7 +12222,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12198,7 +12245,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12219,7 +12266,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12240,7 +12287,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12259,7 +12306,7 @@ div#notebook {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12269,35 +12316,7 @@ div#notebook {
 <div class="alert alert-success"><p style="text-align: right;"><span style="font-size:xx-large;"> .style: { fingers : crossed };</span></p></div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="We're-going-to-need-the-following-things:">We're going to need the following things:<a class="anchor-link" href="#We're-going-to-need-the-following-things:">&#182;</a></h2><h3 id="--A-working-instance-of-Python,-complete-with-the-following-modules">- A working instance of Python, complete with the following modules<a class="anchor-link" href="#--A-working-instance-of-Python,-complete-with-the-following-modules">&#182;</a></h3><ul>
-<li>comtypes, pandas, IPython as well as a working Jupyter Notebooks environment</li>
-</ul>
-<p>The simplest way to set up the right kind of Python environment is to download the Anaconda Python installer from Continuum Analytics <a href="https://www.continuum.io/downloads">here</a>. Not only is it extremely complete in terms of useful scientific libraries, it's <strong>Free</strong> and properly licensed for both Personal as well as Commercial Use, including redistribution.
-We'll pick the right 32/64-bit version for our Windows Operating System, and it's highly recommend to stick with the Python 3.5 version (unless there is a specific dependency that's known already to have to use Python 2.7)
-It's also recommended to let the installer default to installing in the local user folders rather than in a Global {Program Files} kind of location.  <em>This avoids the need to have Administrative priviledges to perform the install.</em></p>
-<h3 id="--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">- A properly installed, and licensed, instance of STKv11.1, which can be requested <a href="http://www.agi.com/products/stk/license/">here</a>.<a class="anchor-link" href="#--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">&#182;</a></h3><ul>
-<li>Specifically we will need the STK/Integration License which activates the STK API for use by external environments, like Python|Matlab|Java|etc...</li>
-</ul>
-<h3 id="--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">- A working internet connection if you wish to explore the STK Online documentation linked below in this Notebook<a class="anchor-link" href="#--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>First we set up a few imports to gain access to their nested properties and functions.</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -12312,17 +12331,7 @@ It's also recommended to let the installer default to installing in the local us
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we need to import references to <code>comtypes</code> and some of it's methods so we can tie to the STK COM-based objects.</p>
-
-</div>
-</div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -12336,16 +12345,7 @@ It's also recommended to let the installer default to installing in the local us
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">Let's start by creating a new running instance of the STK (AgUiApplication) Application<a class="anchor-link" href="#Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">&#182;</a></h3>
-</div>
-</div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
@@ -12358,27 +12358,7 @@ It's also recommended to let the installer default to installing in the local us
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If this is the first time you're running this Notebook against STKv11.1, you might see the following:</p>
-
-<pre><code># Generating comtypes.gen._781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0
-# Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
-# Generating comtypes.gen.stdole
-# Generating comtypes.gen._9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0
-# Generating comtypes.gen.AgUiCoreLib
-# Generating comtypes.gen.AgUiApplicationLib</code></pre>
-<p>as <code>comtypes</code> generates Python "wrappers" around the Classes and Interfaces found at the <strong><em>AgUiApplication</em></strong> level.</p>
-<p>let's check what kind of object we've been given back. To do that we can use the Python <code>type()</code>
-call and pass in the variable referencing the object we're interested in.</p>
-
-</div>
-</div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -12407,7 +12387,8 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12418,6 +12399,8 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 </div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12428,6 +12411,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 </div>
+</aside></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -12441,7 +12425,8 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12452,6 +12437,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 </div>
+</aside></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
@@ -12467,18 +12453,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Now-lets-get-to-work.">Now lets get to work.<a class="anchor-link" href="#Now-lets-get-to-work.">&#182;</a></h4><p>We need to start using the STK Object model, and to do that we want to get a reference to the Object Model Tree itself.
-In AGI terms, we refer to the particular version of the structure of that Object Model as it's "Personality".  To date there are two existing versions of that structure, and we want to use the latest one, simply called <strong><em>Personality2</em></strong></p>
-
-</div>
-</div>
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -12491,7 +12466,8 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12517,79 +12493,8 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;C:\\Users\\fsnyder\\AppData\\Local\\Continuum\\Anaconda3\\lib\\site-packages\\comtypes\\gen&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;AgSTKGraphicsLib.py&#39;,
- &#39;AgSTKVgtLib.py&#39;,
- &#39;AgUiApplicationLib.py&#39;,
- &#39;AgUiCoreLib.py&#39;,
- &#39;stdole.py&#39;,
- &#39;STKObjects.py&#39;,
- &#39;STKUtil.py&#39;,
- &#39;_00020430_0000_0000_C000_000000000046_0_2_0.py&#39;,
- &#39;_00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0.py&#39;,
- &#39;_42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0.py&#39;,
- &#39;_781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0.py&#39;,
- &#39;_8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0.py&#39;,
- &#39;_9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0.py&#39;,
- &#39;_D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0.py&#39;,
- &#39;__init__.py&#39;,
- &#39;__pycache__&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12602,15 +12507,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="So,-now-let's-also-check-what-kind-of-object-we've-been-given-back.">So, now let's also check what kind of object we've been given back.<a class="anchor-link" href="#So,-now-let's-also-check-what-kind-of-object-we've-been-given-back.">&#182;</a></h4>
-</div>
-</div>
-</div>
+</aside><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -12639,7 +12536,8 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12650,6 +12548,8 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 </div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12660,6 +12560,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 </div>
+</aside></div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -12673,7 +12574,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12682,7 +12583,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 <h3 id="Now-let's-create-a-Scenario,-the-start-of-any-kind-of-STK-related-work">Now let's create a Scenario, the start of any kind of STK-related work<a class="anchor-link" href="#Now-let's-create-a-Scenario,-the-start-of-any-kind-of-STK-related-work">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -12711,7 +12612,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12721,7 +12622,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 
 </div>
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
@@ -12734,7 +12635,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
@@ -12763,7 +12664,8 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12777,6 +12679,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 </div>
+</aside></div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
@@ -12806,7 +12709,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12820,7 +12723,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
@@ -12849,7 +12752,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 </div>
 
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12860,7 +12763,7 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
@@ -12873,7 +12776,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 
-</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12887,7 +12790,7 @@ this is an action (method) that can called from the root level.</p>
 </table>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12897,7 +12800,8 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12908,6 +12812,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
+</aside><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
@@ -12920,7 +12825,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12930,7 +12835,7 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
@@ -12960,7 +12865,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 
-</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12987,7 +12892,7 @@ this is an action (method) that can called from the root level.</p>
 </table>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12998,7 +12903,7 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
@@ -13012,7 +12917,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 
-</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13025,7 +12930,7 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13035,7 +12940,8 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13047,6 +12953,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13057,6 +12965,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
+</aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
@@ -13098,7 +13007,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13110,35 +13020,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">SetPropagatorType</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">ePropagatorJ2Perturbation</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13149,48 +13032,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span> <span class="o">=</span> <span class="n">sat2</span><span class="o">.</span><span class="n">Propagator</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgVePropagator)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13208,36 +13051,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">=</span><span class="n">satProp</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgVePropagatorJ2Perturbation</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgVePropagatorJ2Perturbation)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13252,6 +13067,8 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13262,6 +13079,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 </div>
 </div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13272,7 +13090,7 @@ this is an action (method) that can called from the root level.</p>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13286,20 +13104,7 @@ This sequence parallels the following GUI actions:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Epoch</span><span class="o">=</span><span class="s2">&quot;08 Jun 2016 15:14:26&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13312,36 +13117,8 @@ This sequence parallels the following GUI actions:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="p">)</span>
-</pre></div>
+</div><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgOrbitState)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13352,48 +13129,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian</span> <span class="o">=</span> <span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">ConvertTo</span><span class="p">(</span><span class="n">STKUtil</span><span class="o">.</span><span class="n">eOrbitStateClassical</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgOrbitState)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13405,19 +13142,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span> <span class="o">=</span> <span class="n">keplerian</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrbitStateClassical</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13428,21 +13154,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShapeType</span> <span class="o">=</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSizeShapeMeanMotion</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">LocationType</span> <span class="o">=</span> <span class="n">STKObjects</span><span class="o">.</span><span class="n">eLocationMeanAnomaly</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNodeType</span> <span class="o">=</span> <span class="n">STKObjects</span><span class="o">.</span><span class="n">eAscNodeRAAN</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13454,36 +13167,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;revs&#39;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;TimeUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13495,35 +13180,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgClassicalSizeShape)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13547,32 +13205,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">MeanMotion</span> <span class="o">=</span> <span class="mf">15.08385840</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">Eccentricity</span> <span class="o">=</span> <span class="mf">0.0002947</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13583,22 +13217,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;TimeUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;sec&#39;</span><span class="p">)</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">Inclination</span> <span class="o">=</span> <span class="mf">28.4703</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">ArgOfPerigee</span> <span class="o">=</span> <span class="mf">114.7239</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13610,20 +13230,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNode</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrientationAscNodeRAAN</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">315.1965</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Location</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalLocationMeanAnomaly</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">332.9096</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13635,35 +13243,8 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">Assign</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13674,35 +13255,7 @@ This sequence parallels the following GUI actions:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">Propagate</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13714,7 +13267,7 @@ This sequence parallels the following GUI actions:</p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13743,7 +13296,7 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13755,7 +13308,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 
 </div>
 </div>
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
@@ -13786,6 +13340,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 
 </div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13796,19 +13352,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVel</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataProviderGroup</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13819,36 +13364,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s2">&quot;J2000&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataProviderInfo)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13859,36 +13376,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000TimeVar</span> <span class="o">=</span> <span class="n">cartVelJ2000</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataPrvTimeVar</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000TimeVar</span><span class="p">)</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13900,19 +13389,8 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rptElements</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
-</pre></div>
+</aside><aside class="notes">
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -13923,603 +13401,7 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">velResult</span><span class="o">=</span><span class="n">cartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">velResult</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDrResult)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="n">z</span><span class="p">});</span>
-<span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>time</th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10 Jun 2016 04:00:00.000000000</td>
-      <td>-6.932515</td>
-      <td>-0.060174</td>
-      <td>-3.094559</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10 Jun 2016 04:01:00.000000000</td>
-      <td>-6.857958</td>
-      <td>-0.541188</td>
-      <td>-3.211614</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10 Jun 2016 04:02:00.000000000</td>
-      <td>-6.753587</td>
-      <td>-1.019847</td>
-      <td>-3.314669</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10 Jun 2016 04:03:00.000000000</td>
-      <td>-6.619858</td>
-      <td>-1.494068</td>
-      <td>-3.403273</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10 Jun 2016 04:04:00.000000000</td>
-      <td>-6.457357</td>
-      <td>-1.961787</td>
-      <td>-3.477042</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>10 Jun 2016 04:05:00.000000000</td>
-      <td>-6.266791</td>
-      <td>-2.420970</td>
-      <td>-3.535655</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>10 Jun 2016 04:06:00.000000000</td>
-      <td>-6.048992</td>
-      <td>-2.869618</td>
-      <td>-3.578857</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>10 Jun 2016 04:07:00.000000000</td>
-      <td>-5.804911</td>
-      <td>-3.305781</td>
-      <td>-3.606460</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>10 Jun 2016 04:08:00.000000000</td>
-      <td>-5.535611</td>
-      <td>-3.727560</td>
-      <td>-3.618345</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10 Jun 2016 04:09:00.000000000</td>
-      <td>-5.242267</td>
-      <td>-4.133124</td>
-      <td>-3.614463</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>10 Jun 2016 04:10:00.000000000</td>
-      <td>-4.926156</td>
-      <td>-4.520707</td>
-      <td>-3.594831</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>10 Jun 2016 04:11:00.000000000</td>
-      <td>-4.588657</td>
-      <td>-4.888626</td>
-      <td>-3.559536</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>10 Jun 2016 04:12:00.000000000</td>
-      <td>-4.231238</td>
-      <td>-5.235283</td>
-      <td>-3.508734</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>10 Jun 2016 04:13:00.000000000</td>
-      <td>-3.855457</td>
-      <td>-5.559171</td>
-      <td>-3.442648</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>10 Jun 2016 04:14:00.000000000</td>
-      <td>-3.462949</td>
-      <td>-5.858884</td>
-      <td>-3.361567</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>10 Jun 2016 04:15:00.000000000</td>
-      <td>-3.055423</td>
-      <td>-6.133121</td>
-      <td>-3.265846</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>10 Jun 2016 04:16:00.000000000</td>
-      <td>-2.634652</td>
-      <td>-6.380693</td>
-      <td>-3.155904</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>10 Jun 2016 04:17:00.000000000</td>
-      <td>-2.202465</td>
-      <td>-6.600526</td>
-      <td>-3.032222</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>10 Jun 2016 04:18:00.000000000</td>
-      <td>-1.760744</td>
-      <td>-6.791666</td>
-      <td>-2.895340</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>10 Jun 2016 04:19:00.000000000</td>
-      <td>-1.311408</td>
-      <td>-6.953287</td>
-      <td>-2.745856</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>10 Jun 2016 04:20:00.000000000</td>
-      <td>-0.856410</td>
-      <td>-7.084688</td>
-      <td>-2.584422</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>10 Jun 2016 04:21:00.000000000</td>
-      <td>-0.397727</td>
-      <td>-7.185302</td>
-      <td>-2.411742</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>10 Jun 2016 04:22:00.000000000</td>
-      <td>0.062647</td>
-      <td>-7.254694</td>
-      <td>-2.228570</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>10 Jun 2016 04:23:00.000000000</td>
-      <td>0.522714</td>
-      <td>-7.292567</td>
-      <td>-2.035705</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>10 Jun 2016 04:24:00.000000000</td>
-      <td>0.980476</td>
-      <td>-7.298758</td>
-      <td>-1.833987</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>10 Jun 2016 04:25:00.000000000</td>
-      <td>1.433944</td>
-      <td>-7.273244</td>
-      <td>-1.624295</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>10 Jun 2016 04:26:00.000000000</td>
-      <td>1.881152</td>
-      <td>-7.216138</td>
-      <td>-1.407543</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>10 Jun 2016 04:27:00.000000000</td>
-      <td>2.320159</td>
-      <td>-7.127692</td>
-      <td>-1.184675</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>10 Jun 2016 04:28:00.000000000</td>
-      <td>2.749060</td>
-      <td>-7.008291</td>
-      <td>-0.956660</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>10 Jun 2016 04:29:00.000000000</td>
-      <td>3.165995</td>
-      <td>-6.858457</td>
-      <td>-0.724493</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1411</th>
-      <td>11 Jun 2016 03:31:00.000000000</td>
-      <td>-3.107458</td>
-      <td>6.918649</td>
-      <td>0.319253</td>
-    </tr>
-    <tr>
-      <th>1412</th>
-      <td>11 Jun 2016 03:32:00.000000000</td>
-      <td>-3.506238</td>
-      <td>6.732572</td>
-      <td>0.080765</td>
-    </tr>
-    <tr>
-      <th>1413</th>
-      <td>11 Jun 2016 03:33:00.000000000</td>
-      <td>-3.889790</td>
-      <td>6.517211</td>
-      <td>-0.158086</td>
-    </tr>
-    <tr>
-      <th>1414</th>
-      <td>11 Jun 2016 03:34:00.000000000</td>
-      <td>-4.256444</td>
-      <td>6.273500</td>
-      <td>-0.396258</td>
-    </tr>
-    <tr>
-      <th>1415</th>
-      <td>11 Jun 2016 03:35:00.000000000</td>
-      <td>-4.604606</td>
-      <td>6.002496</td>
-      <td>-0.632713</td>
-    </tr>
-    <tr>
-      <th>1416</th>
-      <td>11 Jun 2016 03:36:00.000000000</td>
-      <td>-4.932759</td>
-      <td>5.705376</td>
-      <td>-0.866420</td>
-    </tr>
-    <tr>
-      <th>1417</th>
-      <td>11 Jun 2016 03:37:00.000000000</td>
-      <td>-5.239475</td>
-      <td>5.383431</td>
-      <td>-1.096359</td>
-    </tr>
-    <tr>
-      <th>1418</th>
-      <td>11 Jun 2016 03:38:00.000000000</td>
-      <td>-5.523418</td>
-      <td>5.038059</td>
-      <td>-1.321528</td>
-    </tr>
-    <tr>
-      <th>1419</th>
-      <td>11 Jun 2016 03:39:00.000000000</td>
-      <td>-5.783352</td>
-      <td>4.670762</td>
-      <td>-1.540943</td>
-    </tr>
-    <tr>
-      <th>1420</th>
-      <td>11 Jun 2016 03:40:00.000000000</td>
-      <td>-6.018146</td>
-      <td>4.283136</td>
-      <td>-1.753647</td>
-    </tr>
-    <tr>
-      <th>1421</th>
-      <td>11 Jun 2016 03:41:00.000000000</td>
-      <td>-6.226777</td>
-      <td>3.876868</td>
-      <td>-1.958712</td>
-    </tr>
-    <tr>
-      <th>1422</th>
-      <td>11 Jun 2016 03:42:00.000000000</td>
-      <td>-6.408337</td>
-      <td>3.453725</td>
-      <td>-2.155244</td>
-    </tr>
-    <tr>
-      <th>1423</th>
-      <td>11 Jun 2016 03:43:00.000000000</td>
-      <td>-6.562035</td>
-      <td>3.015548</td>
-      <td>-2.342383</td>
-    </tr>
-    <tr>
-      <th>1424</th>
-      <td>11 Jun 2016 03:44:00.000000000</td>
-      <td>-6.687202</td>
-      <td>2.564243</td>
-      <td>-2.519315</td>
-    </tr>
-    <tr>
-      <th>1425</th>
-      <td>11 Jun 2016 03:45:00.000000000</td>
-      <td>-6.783294</td>
-      <td>2.101775</td>
-      <td>-2.685266</td>
-    </tr>
-    <tr>
-      <th>1426</th>
-      <td>11 Jun 2016 03:46:00.000000000</td>
-      <td>-6.849892</td>
-      <td>1.630156</td>
-      <td>-2.839513</td>
-    </tr>
-    <tr>
-      <th>1427</th>
-      <td>11 Jun 2016 03:47:00.000000000</td>
-      <td>-6.886708</td>
-      <td>1.151440</td>
-      <td>-2.981383</td>
-    </tr>
-    <tr>
-      <th>1428</th>
-      <td>11 Jun 2016 03:48:00.000000000</td>
-      <td>-6.893581</td>
-      <td>0.667710</td>
-      <td>-3.110256</td>
-    </tr>
-    <tr>
-      <th>1429</th>
-      <td>11 Jun 2016 03:49:00.000000000</td>
-      <td>-6.870483</td>
-      <td>0.181072</td>
-      <td>-3.225571</td>
-    </tr>
-    <tr>
-      <th>1430</th>
-      <td>11 Jun 2016 03:50:00.000000000</td>
-      <td>-6.817515</td>
-      <td>-0.306356</td>
-      <td>-3.326824</td>
-    </tr>
-    <tr>
-      <th>1431</th>
-      <td>11 Jun 2016 03:51:00.000000000</td>
-      <td>-6.734909</td>
-      <td>-0.792453</td>
-      <td>-3.413574</td>
-    </tr>
-    <tr>
-      <th>1432</th>
-      <td>11 Jun 2016 03:52:00.000000000</td>
-      <td>-6.623026</td>
-      <td>-1.275101</td>
-      <td>-3.485445</td>
-    </tr>
-    <tr>
-      <th>1433</th>
-      <td>11 Jun 2016 03:53:00.000000000</td>
-      <td>-6.482355</td>
-      <td>-1.752202</td>
-      <td>-3.542121</td>
-    </tr>
-    <tr>
-      <th>1434</th>
-      <td>11 Jun 2016 03:54:00.000000000</td>
-      <td>-6.313509</td>
-      <td>-2.221677</td>
-      <td>-3.583357</td>
-    </tr>
-    <tr>
-      <th>1435</th>
-      <td>11 Jun 2016 03:55:00.000000000</td>
-      <td>-6.117225</td>
-      <td>-2.681485</td>
-      <td>-3.608975</td>
-    </tr>
-    <tr>
-      <th>1436</th>
-      <td>11 Jun 2016 03:56:00.000000000</td>
-      <td>-5.894360</td>
-      <td>-3.129625</td>
-      <td>-3.618863</td>
-    </tr>
-    <tr>
-      <th>1437</th>
-      <td>11 Jun 2016 03:57:00.000000000</td>
-      <td>-5.645885</td>
-      <td>-3.564148</td>
-      <td>-3.612978</td>
-    </tr>
-    <tr>
-      <th>1438</th>
-      <td>11 Jun 2016 03:58:00.000000000</td>
-      <td>-5.372883</td>
-      <td>-3.983162</td>
-      <td>-3.591349</td>
-    </tr>
-    <tr>
-      <th>1439</th>
-      <td>11 Jun 2016 03:59:00.000000000</td>
-      <td>-5.076544</td>
-      <td>-4.384848</td>
-      <td>-3.554070</td>
-    </tr>
-    <tr>
-      <th>1440</th>
-      <td>11 Jun 2016 04:00:00.000000000</td>
-      <td>-4.758159</td>
-      <td>-4.767457</td>
-      <td>-3.501306</td>
-    </tr>
-  </tbody>
-</table>
-<p>1441 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[174]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[174]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;time&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], dtype=&#39;object&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
+</aside>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
@@ -14532,145 +13414,63 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
+</div></section></section>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<script>
 
-</div>
-</div>
-</div>
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+    function(head, Reveal){
 
-</div>
-</div>
-</div>
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[176]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">=</span><span class="n">sat</span><span class="o">.</span><span class="n">DataProviders</span><span class="o">.</span><span class="n">GetDataPrvTimeVarFromPath</span><span class="p">(</span><span class="s2">&quot;Cartesian Velocity//J2000&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="p">)</span>
-</pre></div>
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
-</div>
-</div>
-</div>
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
 
-<div class="output_wrapper">
-<div class="output">
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
 
+        Reveal.addEventListener('slidechanged', update);
 
-<div class="output_area"><div class="prompt output_prompt">Out[176]:</div>
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
 
+        Reveal.addEventListener('slidechanged', update_scroll);
 
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
-</div>
+    }
+);
+</script>
 
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[177]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTvelResults</span><span class="o">=</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">ALTvelResults</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[177]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDrResult)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Close things down for a clean exit</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">root</span><span class="p">;</span> 
-<span class="n">app</span><span class="o">.</span><span class="n">Quit</span><span class="p">();</span>
-<span class="k">del</span> <span class="n">app</span><span class="p">;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
 </body>
+
+
 </html>

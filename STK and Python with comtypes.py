@@ -6,7 +6,9 @@
 import nbpresent
 nbpresent.__version__
 
-
+<style type="text/css">
+ 
+</style>
 # 
 # # STK Integration with Python
 # <br/>
@@ -26,39 +28,34 @@ nbpresent.__version__
 
 # # STK Interfaces (over time)
 
-# HTML Tests with custom.css
-# <pstyle="text-align: left;">left aligned </p>
-# <p style="text-align: right;">right aligned</p>
-# <div><p>  this </p> is in the footer ID </div>
-
 # ## In the beginning...
 # <br/>
-# <div style="width:500px; margin: 0 auto; border: 1px solid red;">
+# <div style="width:500px; margin: 0 auto;">
 # <figure>
-#   <img src="./images/InView_STKv2.0_Aug1992.png" width="100%" height="100%" style="margin: 0 auto; border: 1px solid red;"/>
+#   <img src="./images/InView_STKv2.0_Aug1992.png" width="100%" height="100%" style="margin: 0 auto;"/>
 #   <figcaption style="text-align: center;"><strong>STK 2.0 - The GUI</strong></figcaption>
 # </figure>
 # </div>
 # 
 
-# <div style="width:600px; margin: 0 auto; border: 1px solid red;">
+# <div style="width:600px; margin: 0 auto;">
 # <figure>
-#   <img src="./images/InView_STKv3.0_1995.png" width="85%" height="70%" style="margin: 0 auto; border: 1px solid red;"; />
+#   <img src="./images/InView_STKv3.0_1995.png" width="85%" height="70%" style="margin: 0 auto;"; />
 #   <figcaption style="text-align: center;"><strong>STK 3.0.  NOW With Color GUI !!</strong></figcaption>
 # </figure>
 # </div>
 
 # <div style="width:800px; margin: 0 auto;">
-#  <div style="width:350px; display: inline-block; float:left; margin: 0 auto; border: 1px solid red;">
+#  <div style="width:350px; display: inline-block; float:left; margin: 0 auto; ">
 #   <figure>
-#    <img src="./images/InView_ColorBrowserWindow_1995.png" width="80%" height="50%" style="margin: 0 auto; border: 1px solid red;"/>
+#    <img src="./images/InView_ColorBrowserWindow_1995.png" width="80%" height="50%" style="margin: 0 auto; "/>
 #    <figcaption style="font-size: large; text-align: center;"><strong>STK3.0 Object Browser.</strong></figcaption>
 #   </figure>
 #  </div>
 # 
-#  <div style="width:350px; display: inline-block; float:right; margin: 0 auto; border: 1px solid red">
+#  <div style="width:350px; display: inline-block; float:right; margin: 0 auto;">
 #   <figure>
-#    <img src="./images/InView_FeedbackOnSTK3.0_IPC_1995.png" width="80%" height="50%" style="margin: 0 auto; border: 1px solid red;"/>
+#    <img src="./images/InView_FeedbackOnSTK3.0_IPC_1995.png" width="80%" height="50%" style="margin: 0 auto;"/>
 #    <figcaption style="font-size: large; text-align: center;"><strong>Feedback of STK3.0 IPCv2.0.<strong></figcaption>
 #   </figure>
 #  </div>
@@ -70,7 +67,7 @@ nbpresent.__version__
 #   - `SetPosition */Satellite/Shuttle LLA "1 Nov 2000 04:01:00.00" -19 8 372800 -0.23 0.058 0.002`
 #   - `Report_RM */Satellite/Shuttle Style "Lighting Times" TimePeriod "1 Nov 2000 00:00:00.00" "1 Nov 2000 04:00:00.00" TimeStep 30`
 # 
-# #### rebranded as "STK/Connect"
+# <div class="alert alert-info">rebranded as "STK/Connect"</div>
 
 # - PLUS: Syntax was human readable
 # - <span style="background:black; color:white; padding:2px;"> MINUS: Error reporting wasn't </span>
@@ -80,15 +77,15 @@ nbpresent.__version__
 # - <span style="background:black; color:white;  padding:2px;"> MINUS: Limited because of Strings < 255 characters </span>
 # 
 # 
-# - PLUS: "Easy" to Request Data
-# - <span style="background:black; color:white; padding:2px; "> MINUS: Parsing Returned Data was "hard" </span>
+# - PLUS: "Easy" to request Data
+# - <span style="background:black; color:white; padding:2px; "> MINUS: Parsing returned Data was "hard" </span>
 
-# "Connect" drove the Comp-Sci guys nuts...
+# <div class="alert alert-warning">"Connect" drove the Comp-Sci guys nuts...</div>
 
 # ## ~2002/'03 - STKv5.0
-# <div style="width:600px;  margin: 0 auto;border: 1px solid red;">
+# <div style="width:600px;  margin: 0 auto;">
 #  <figure>
-#   <img src="./images/InView_ExperienceSTK5.0_UC2003.png"  width="100%" height="70%" style="margin: 0 auto; border: 1px solid red;"/>
+#   <img src="./images/InView_ExperienceSTK5.0_UC2003.png"  width="100%" height="70%" style="margin: 0 auto;"/>
 #   <figcaption style="text-align: center;"><strong>STK 5.0 Object Model</strong></figcaption>
 #  </figure>
 # </div>
@@ -98,16 +95,140 @@ nbpresent.__version__
 # 
 
 # ## But how to organize it ?
-# <div style="width:200px; margin: 0 auto;border: 1px solid red;">
+# <br/>
+# <div style="width:400px; margin: 0 auto;">
 #  <figure>
-#   <img src="./images/chicken-or-egg.png" width="90%" height="80%"  style="margin: 0 auto; border: 1px solid red;"/>
-#   <figcaption style="text-align: center;"><strong>Which Comes FIRST?</strong></figcaption>
+#   <img src="./images/chicken-or-egg.png" width="90%" height="80%" style="margin: 0 auto;"/>
+#   <figcaption style="text-size: small; text-align: center;"></strong>Which Comes FIRST?</strong></figcaption>
 #  </figure>
 # </div>
-# 
+# <br/>
 # ## Go back to the begining...  The GUI !!
 
+# STK Object Model Diagram(s)
+# <div style="width:800px; margin: 0 auto;">
+#   <img src="./images/STK_OM_page1-subset.png" width="100%" height="100%"  style="margin: 0 auto;"/>
+# </div>
+
+# ### STK (Engine) Programming  Documentation [(online)](http://help.agi.com/stkdevkit/index.html)
+# 
+# - ex. **_IAgStkObject_** [docs](http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgStkObject.html)
+#  
+# <br/>
+# ###  STK Object Model Diagrams [(online)](http://help.agi.com/stkdevkit/ObjectModel/pdf/ObjectModel_diagram.pdf)
+
+# # Object-Oriented Programming
+
+# ## Snyder's (very short) Course on Object Oriented "stuff"
+
+# ## The <img src="images/marvel.png" style=" height: 100px; display: inline-block; margin: 0 auto; "/> Edition
+
+# ## Objects
+
+# <div style="width:600px;  margin: 0 auto;">
+#   <img src="images/hulk-banner.jpg" style="margin: 0 auto; "/>
+# </div>
+# <br/>
+# <h3 style="text-align:center;">Object Name = **_"AgBigGuy"_**</h3>
+
+# ## Object **_AgBigGuy_** has 2 Interfaces
+# <br>
+#  - **_IAgBigGuyBanner_**
+# 
+# <br/>
+#  - **_IAgBigGuyHulk_** 
+
+# ### **_IAgBigGuyBanner_**
+# - Properties
+#   - .size
+#   - .skinTone
+#   - .attitude
+# - Methods
+#   - .talk
+#   - .think
+#   - .DoScience
+#   - .smash   (damage = minor)
+# - Events
+#   - .GettingAngry
+
+# ### **_IAgBigGuyHulk_**
+# - Properties
+#   - .size
+#   - .skinTone
+#   - .attitude
+# - Methods
+#   - .smash (damage = extreme)
+#   - .meditate 
+# - Events
+#   - .GettingReallyAngry
+
+# <div class="alert alert-warning">Objects are everything, but pay attention to the Interfaces</div>
+
+# <div style="width:600px;  margin: 0 auto;">
+#   <img src="images/hulk-meditate.jpg" style="width:80%; margin: 0 auto; "/>
+# </div>
+# <br/>
+# <h3 style="text-align:center;">OM... OM...</h3>
+
 # # Coding Environments
+
+# ## Selecting an environment and language
+# 
+# <br/>
+# <div style="width:600px;  margin: 0 auto;">
+#   <img src="images/scale-of-coding-languages.png" style="width:100%; margin: 0 auto; "/>
+# </div>
+# <br/>
+
+# - Things You **Need** In your Coding Environment
+#   - COM Support (Late or Early)
+# - Things You **Want** in your Coding Environment (for learning)
+#   - R.E.P.L (Read-Evaluate-Print-Loop)
+#   - Tab-completion (Intellisense)
+#   - Libraries
+#   - Text Editor with Syntax Highlighting
+#   - Pretty Output
+
+# # MATLAB <img src="images/mathworks.jpg" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+# - Scientific **Environment**
+#   - Language
+#   - IDE
+# - Dynamicly Typed
+# - Can bind to COM objects - <span style="background:black; color:white; padding:2px; "> Late-Bound only</span>
+#    - `app = actxserver('STK11.application');`
+#    - `app.UserControl = 1;`
+#    - `root=app.Personality2;`
+
+# - PLUS: Awesome at math, matrices, plots & graphs
+#   - many "specialty" libraries
+# - <span style="background:black; color:white; padding:2px; "> MINUS: Working with TEXT is "hard"</span>
+# - <span style="background:black; color:white; padding:2px; "> MINUS: "strange" data structures</span>
+#    - struct2cell()
+#    - cell2mat()
+
+# # Python <img src="images/python-logo.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+# - General purpose language
+# - Scientific **Libraries**
+#   - Numpy <img src="images/numpylogo_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - SciPy <img src="images/scipy_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - SymPy <img src="images/sympy_logo.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - Pandas <img src="images/pandas_badge2.jpg" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - Matplotlib <img src="images/matplotlib_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - more...
+
+# - Multiple IDE's
+#   - IPython <img src="images/ipython.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - Spyder <img src="images/spyder_bbg.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+#   - Jupyter Notebook <img src="images/jupyter.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/>
+# - Dynamicly Typed
+# - Can bind to COM objects - **Early** or Late-Bound
+
+# # Live Demo
+# 
+# <br/><br/><br/>
+# 
+# <div class="alert alert-success"><p style="text-align: right;"><span style="font-size:xx-large;"> .style: { fingers : crossed };</span></p></div>
+# 
 
 # ## We're going to need the following things:
 # ### - A working instance of Python, complete with the following modules
@@ -180,7 +301,7 @@ app.UserControl=True
 
 # As per most Windows Applications, this is where you can usually do things like position and resize the Application's main window.  Here we're going to place it on the left side of the screen, extending halfway to the right.
 
-# In[7]:
+# In[14]:
 
 app.Top=0
 app.Left=0
@@ -245,7 +366,7 @@ type(root)
 # 
 # #### From this `root` object we can reach all the sub-objects, methods, and properties by traversing the API Object Model.
 
-# wNext, we're going to assign two new variables to the autogenerated Python wrappers of the STK Classes found in `comtypes.gen.STKObjects` and `comtypes.gen.STKUtil`.  These will be useful when transitioning between Interfaces exposed by each STK object we will use, as well as all the readable Enumerations (ex. eScenario = 19)
+# Next, we're going to assign two new variables to the autogenerated Python wrappers of the STK Classes found in `comtypes.gen.STKObjects` and `comtypes.gen.STKUtil`.  These will be useful when transitioning between Interfaces exposed by each STK object we will use, as well as all the readable Enumerations (ex. eScenario = 19)
 
 # In[12]:
 
@@ -262,12 +383,12 @@ root.NewScenario("IPython_DIY")
 
 # and lets set the variable `sc` to the current scenario using the exposed **CurrentScenario** method off the `root` object
 
-# In[14]:
+# In[15]:
 
 sc=root.CurrentScenario
 
 
-# In[15]:
+# In[16]:
 
 type(sc)
 
@@ -284,7 +405,7 @@ type(sc)
 # 
 # ##### Online docs for [_IAgSCenario_](http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgScenario.html)
 
-# In[16]:
+# In[17]:
 
 sc2=sc.QueryInterface(STKObjects.IAgScenario)
 type(sc2)
@@ -298,11 +419,16 @@ type(sc2)
 # 
 # The times are conveniently in a **Gregorian** format, referencing UTC, so we don't need to convert any Date/Time units because STK's Default Date settings are to use UTCG, but it's always good to pay attention to details like this.
 
-# In[17]:
+# In[18]:
 
 sc2.SetTimePeriod("10 Jun 2016 04:00:00","11 Jun 2016 04:00:00")
+
+
 # and while we're at it, lets reset the Animation time for the scenario to the begining.
 # this is an action (method) that can called from the root level.
+
+# In[19]:
+
 root.Rewind();
 
 
@@ -318,14 +444,14 @@ root.Rewind();
 
 # The `sc` object can return a Collection of "Children" that hierarchically fall under it.  That collection also has a `New` Method we can use to create any kind of STK object that is allowed to be attached underneath the _Scenario_ level of the STK Object Browser Tree.  In the following example, we can "gang" multiple traverses through the object model using additional '.' and tab-completions, as follows:
 
-# In[18]:
+# In[20]:
 
 fac= sc.Children.New(STKObjects.eFacility,"codeFacility")
 
 
 # Now we want to define it's position, preferably using a Geodetic frame of reference.  To do that, we need to use the objects **IAgFacility** interface instead of it's **IAgStkObject** interface.
 
-# In[19]:
+# In[21]:
 
 fac2 = fac.QueryInterface(STKObjects.IAgFacility)
 fac2.Position.AssignGeodetic(38.9943,-76.8489,0)
@@ -355,13 +481,15 @@ fac2.Position.AssignGeodetic(38.9943,-76.8489,0)
 # 
 # Of course we want to do _Satellite_ things with this Object, so let's create a second `sat2` variable that's set to use the **_IAgSatellite_** interface.
 
-# In[20]:
+# In[22]:
 
 sat = sc.Children.New(STKObjects.eSatellite, "codeSat")
 sat2= sat.QueryInterface(STKObjects.IAgSatellite)
 
 
-# There is a "pattern" to how a Satellite is created, it's properties defined, and it's propagator asked to calculate it's position over a specified time period.  That pattern can be easily understood by following the sequence of actions performed in the GUI when setting up a Satellite.  NOTE: This same philosophy applies to working with any other STK object as well.
+# There is a "pattern" to how a Satellite is created, it's properties defined, and it's propagator asked to calculate it's position over a specified time period.  That pattern can be easily understood by following the sequence of actions performed in the GUI when setting up a Satellite.  
+# 
+# <div class="alert alert-info">NOTE: This same philosophy applies to working with any other STK object as well.</div>
 # 
 # 
 # **When laying out the STK Object Model hierarchial structure back in STKv5.0, when it first appeared, the developers chose to mimic the functional layout of the GUI, but in code.** 
@@ -378,30 +506,30 @@ sat2= sat.QueryInterface(STKObjects.IAgSatellite)
 
 # To get a list of the allowed Propagators for this object, we can "ask" it for what's supported
 
-# In[21]:
+# In[23]:
 
 sat2.PropagatorSupportedTypes
 
 
 # and we see that J2Perturbation is available, along with a few others that have been activated by the valid licenses that STK saw on startup. 
 # 
-# **NOTE: Only items that are activated by valid licenses will show up in this list, or be available when assignining at runtime.**
+# <div class="alert alert-info">NOTE: Only items that are activated by valid licenses will show up in this list, or be available when assignining at runtime.</div>
 # 
 # Now we can set the Propagator type using a related method `SetPropagatorType` and passing it the `STKObjects.ePropagatorJ2Perturbation` enumeration (which actualy resolves to the number "1")
 
-# In[22]:
+# In[24]:
 
 sat2.SetPropagatorType(STKObjects.ePropagatorJ2Perturbation)
 
 
 # Now the .Propagator "property" of the `sat2` object will return an instance of the right kind of J2Perturbation object for us to work with.
 
-# In[23]:
+# In[25]:
 
 satProp = sat2.Propagator
 
 
-# In[24]:
+# In[26]:
 
 type(satProp)
 
@@ -416,7 +544,7 @@ type(satProp)
 # 
 # and since the base interface **_IAgVePropagator_** didn't have anything useful for us to use, let's Cast `satProp` into it's **_IAgVePropagatorJ2Perturbation_** interface to see what we can do with that.
 
-# In[25]:
+# In[27]:
 
 satProp=satProp.QueryInterface(STKObjects.IAgVePropagatorJ2Perturbation)
 type(satProp)
@@ -450,7 +578,7 @@ type(satProp)
 # 
 # and via `code`:
 
-# In[26]:
+# In[28]:
 
 satProp.InitialState.Epoch="08 Jun 2016 15:14:26"
 
@@ -463,37 +591,37 @@ satProp.InitialState.Epoch="08 Jun 2016 15:14:26"
 # That includes the _Coordinate Type_ {Cartesian, Classical/Keplerian, etc...}, it's _Coordinate System of Reference_ {ICRF, J2000, B1950, etc...} and the actual parameters, as appropriate, for how the Coordinates are applied.
 # 
 
-# In[27]:
+# In[29]:
 
 type(satProp.InitialState.Representation)
 
 
 # We're going to set a new variable, `keplerian`, to the _.Representation_ when it is converted to be a Classical (i.e. Keplerian) Type of parameters.
 
-# In[28]:
+# In[30]:
 
 keplerian = satProp.InitialState.Representation.ConvertTo(STKUtil.eOrbitStateClassical)
 
 
-# In[29]:
+# In[31]:
 
 type(keplerian)
 
 
 # despite being "converted" to **`eOrbitStateClassical`** the `keplerian` object is still exposing the generic "base" **_IAgOrbitState_** interface.  We want the more specific, and applicable to our type of data, **_IAgOrbitStateClassical_** interface where we can make some changes to how both the _Size_ of the orbit (_MeanMotion_) and the _Location_ (_MeanAnomaly_) in the orbit is specified.
 # 
-# NOTE: It's only because we want to specify these alternative _MeanMotion_ and _MeanAnomaly_ parameters, because they're convenient to describing the orbit we want, that we have to go to this extra level of detail.  The base **_IAgOrbitState_** interface actually has a few "helper" methods such as _AssignClassical_ where the "traditional" Keplerian elements can be set all at once.
+# <div class="alert alert-info">NOTE: It's only because we want to specify these alternative _MeanMotion_ and _MeanAnomaly_ parameters, because they're convenient to describing the orbit we want, that we have to go to this extra level of detail.  The base **_IAgOrbitState_** interface actually has a few "helper" methods such as _AssignClassical_ where the "traditional" Keplerian elements can be set all at once.</div>
 # 
 # So, `keplerian2` gets assigned with the **_IAgOrbitStateClassical_** interface
 
-# In[30]:
+# In[32]:
 
 keplerian2 = keplerian.QueryInterface(STKObjects.IAgOrbitStateClassical)
 
 
 # and now we can get to work changing the Size, Location, and Orientation to suite how our Orbit State data is specified.
 
-# In[31]:
+# In[33]:
 
 keplerian2.SizeShapeType =STKObjects.eSizeShapeMeanMotion
 keplerian2.LocationType = STKObjects.eLocationMeanAnomaly
@@ -502,11 +630,11 @@ keplerian2.Orientation.AscNodeType = STKObjects.eAscNodeRAAN
 
 # One last thing we need to do prior to setting values and that's to make sure that the Units will match those of our values.  Again this parallels the GUI actions in selecting what's approriate from the unit drop-downs.
 # 
-# NOTE: Each instance of an STK Root object can have **ONLY ONE** global set of units at any particular time.  So if you have values that are specified in multiple different units for a single kind of measurement type (angles, distance, etc...) you'll need to flip-flop to the right Unit prior to setting & assigning it.
+# <div class="alert alert-info">NOTE: Each instance of an STK Root object can have **ONLY ONE** global set of units at any particular time.  So if you have values that are specified in multiple different units for a single kind of measurement type (angles, distance, etc...) you'll need to flip-flop to the right Unit prior to setting & assigning it.</div>
 # 
 # Hanging off the `root` object is a **_UnitPreferences_** property which returns a Collection of **_IAgUnitPrefsDim_** with it's own interface **_IAgUnitPrefsDimCollection_**.  In this case, while it's possible to traverse down to each _Item_ in the collection, and modify them one layer deeper there are some "shortcuts" you can take by "ganging" calls together.  Since the Collection interface has both an **_Item_** Property as well as a **_SetCurrentUnit_** method they can be combined to make the whole process a little more streamlined as one long "call" per Dimension and Unit as follows:
 
-# In[32]:
+# In[34]:
 
 root.UnitPreferences.Item('AngleUnit').SetCurrentUnit('revs')
 root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('day')
@@ -516,7 +644,7 @@ root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('day')
 # 
 # Case in point: the SizeShape property of our `keplerian2` object. 
 
-# In[33]:
+# In[35]:
 
 type(keplerian2.SizeShape)
 
@@ -538,23 +666,23 @@ type(keplerian2.SizeShape)
 # 
 # The process looks like this:
 
-# In[34]:
+# In[36]:
 
 keplerian2.SizeShape.QueryInterface(STKObjects.IAgClassicalSizeShapeMeanMotion).MeanMotion = 15.08385840
 
 
-# In[35]:
+# In[37]:
 
 keplerian2.SizeShape.QueryInterface(STKObjects.IAgClassicalSizeShapeMeanMotion).Eccentricity = 0.0002947
 
 
 # Rememberr that our **'AngleUnit'** and **'TimeUnit'** are both still set to **'revs'** and **'days'** respectively from a few cells above. To properly assign the following angular values as degrees we need to flip-flop back to **'deg'**.  We'll change the **'TimeUnit'** as well because 'seconds' is a common default for units that we're going to be referencing later on.
 
-# In[36]:
+# In[38]:
 
 root.UnitPreferences.Item('AngleUnit').SetCurrentUnit('deg')
 root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('sec')
-keplerian2.Orientation.Inclination = 2.84703
+keplerian2.Orientation.Inclination = 28.4703
 keplerian2.Orientation.ArgOfPerigee = 114.7239
 
 
@@ -562,7 +690,7 @@ keplerian2.Orientation.ArgOfPerigee = 114.7239
 # 
 # Again, in-line "quick-casting" to interfaces that we already know, and expect to see, can be done to streamline the code, albeit at the expense of loosing a bit of tab-completion interactivity.
 
-# In[37]:
+# In[39]:
 
 keplerian2.Orientation.AscNode.QueryInterface(STKObjects.IAgOrientationAscNodeRAAN).Value = 315.1965
 keplerian2.Location.QueryInterface(STKObjects.IAgClassicalLocationMeanAnomaly).Value = 332.9096
@@ -570,16 +698,16 @@ keplerian2.Location.QueryInterface(STKObjects.IAgClassicalLocationMeanAnomaly).V
 
 # We're almost done with this Propagator.  Now that all the properties are properly set in the `keplerian` object, we can Assign it back into the InitialState.Representation of the propagator itself.
 # 
-# This is an important step that **MUST** be done in order for the propagator to "learn" about all these updated values. Simply updating the `keplerian` variable will NOT affect the "factory" Propagator where it was produced.  It has to be explicitly Assigned back in order to take effect.
+# <div class="alert alert-warning">This is an important step that **MUST** be done in order for the propagator to "learn" about all these updated values. Simply updating the `keplerian` variable will NOT affect the "factory" Propagator where it was produced.  It has to be explicitly Assigned back in order to take effect.<div>
 
-# In[38]:
+# In[40]:
 
 satProp.InitialState.Representation.Assign(keplerian)
 
 
 # The last step is to tell the Propagator to **_.Propagate_**.  Without this step, none of the position data will be calculated and the Satellite will remain in a partially configured state. All the properties will have been set, but the code used to to take those properties and calculate its position over its time span won't execute.
 
-# In[39]:
+# In[41]:
 
 satProp.Propagate()
 
@@ -593,7 +721,7 @@ satProp.Propagate()
 # Each _Item()_ of the returned **_IAgDataProviderCollection_** conforms to an **_IAgDataProviderInfo_** interface in addition to exposing one of the three interfaces listed below.
 # 
 # The **_IAgDataProviderInfo_** interface is another "base" and common interface that only has a few properties a single method.  Essentially, it provides the human-readable _Name_ for the Data Provider as well as the _Type_ of Data Provider it is.
-# 
+
 # Data Providers fall into 3 basic categories, or Types:
 # - Static Data, defined in the **_AgDataPrvFixed_** Class and handled through the **_IAgDataPrvFixed_** Interface.
 #   - examples of this would be Fixed position information, object initial state data, and other parameters that won't vary over time.
@@ -608,16 +736,14 @@ satProp.Propagate()
 # which bears a strinking similarity to the GUI layout of the Data Providers selector panel when customizing reports and graphs.
 # <img src="./images/GUI_Report_DataProviders.png"/>
 # So when planning to pull data from STK, it's generally a good idea to be familiar with the GUI layout prior to setting up the code.  The names, relative positions in heirarchy, and contents will all help define the Interfaces we will need to be looking to work with.
-# 
-# 
-# 
+
 # For our first example, we want to ouput the **_Cartesian Position_** and **_Velocity_** of the _Satellite_ that we just created.  That information will need to be specified in a particular Coordinate System, and for this report we want to use the **_J2000_** Coordinate System.
 # 
 # Both of those data groups are Time Varying (TimeSeries) data types, so we know we'll need to work with the **_IAgDataPrvTimeVar_** interface as part of the process.
 # 
 # So, for the velocity data we will be using is the "Cartesian Velocity" _Group_ name, and below it, the "J2000" _Data Provider_ Name, to hone in on the actual _Elements_ {x,y,z,etc...}
 
-# In[79]:
+# In[42]:
 
 cartVel=sat.DataProviders("Cartesian Velocity")
 type(cartVel)
@@ -625,14 +751,14 @@ type(cartVel)
 
 # We've selected the "Cartesian Velocity" group, but need to cast `cartVel` to it's **_IAgDataProviderGroup_** interface to do anything usefull with it.
 
-# In[80]:
+# In[43]:
 
 cartVel=cartVel.QueryInterface(STKObjects.IAgDataProviderGroup)
 
 
 # Now we can pull from the collection of DataProviders found in this Group the one named "J2000"
 
-# In[81]:
+# In[44]:
 
 cartVelJ2000=cartVel.Group.Item("J2000")
 type(cartVelJ2000)
@@ -640,7 +766,7 @@ type(cartVelJ2000)
 
 # again, we get back the "default" **_IAgDataProviderInfo_** interface, which won't do us much good here.  We need to cast it to the more specific **_IAgDataPrvTimeVar_** interface because it's a Time Varying type of Data Provider, and that interface will let us specify the time span over which we want the data to be generated, as well as which specific elements we want.
 
-# In[82]:
+# In[45]:
 
 cartVelJ2000TimeVar = cartVelJ2000.QueryInterface(STKObjects.IAgDataPrvTimeVar)
 type(cartVelJ2000TimeVar)
@@ -650,47 +776,47 @@ type(cartVelJ2000TimeVar)
 # 
 # We need to pass an list of these named Elements into the method call, so we need to create that list first.
 
-# In[110]:
+# In[46]:
 
 rptElements=['Time','x','y','z']
 
 
 # Now we're ready to call _ExecElements_ with a Starting and Ending Time exactly that of the Scenario's, and a time step between generated data points of 60 seconds.
 
-# In[111]:
+# In[47]:
 
 velResult=cartVelJ2000TimeVar.ExecElements(sc2.StartTime,sc2.StopTime,60,rptElements)
 type(velResult)
 
 
-# In[130]:
+# In[48]:
 
 time=velResult.DataSets.Item(0).GetValues()
 
 
-# In[129]:
+# In[49]:
 
 x=velResult.DataSets.Item(1).GetValues()
 
 
-# In[133]:
+# In[50]:
 
 y=velResult.DataSets.Item(2).GetValues()
 
 
-# In[134]:
+# In[51]:
 
 z=velResult.DataSets.Item(3).GetValues()
 
 
-# In[152]:
+# In[52]:
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# In[172]:
+# In[53]:
 
 df=pd.DataFrame({'time':time,'x':x,'y':y,'z':z});
 df
@@ -731,6 +857,15 @@ type(ALTcartVelJ2000TimeVar)
 
 ALTvelResults=ALTcartVelJ2000TimeVar.ExecElements(sc2.StartTime,sc2.StopTime,60,rptElements)
 type(ALTvelResults)
+
+
+# Close things down for a clean exit
+
+# In[54]:
+
+del root; 
+app.Quit();
+del app;
 
 
 # In[ ]:
