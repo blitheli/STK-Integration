@@ -129,7 +129,7 @@ nbpresent.__version__
 #   <img src="images/hulk-banner.jpg" style="margin: 0 auto; "/>
 # </div>
 # <br/>
-# <h3 style="text-align:center;">Object Name = **_"AgBigGuy"_**</h3>
+# <h3 style="text-align:center;">Object Name = "AgBigGuy"</h3>
 
 # ## Object **_AgBigGuy_** has 2 Interfaces
 # <br>
@@ -301,7 +301,7 @@ app.UserControl=True
 
 # As per most Windows Applications, this is where you can usually do things like position and resize the Application's main window.  Here we're going to place it on the left side of the screen, extending halfway to the right.
 
-# In[14]:
+# In[7]:
 
 app.Top=0
 app.Left=0
@@ -383,12 +383,12 @@ root.NewScenario("IPython_DIY")
 
 # and lets set the variable `sc` to the current scenario using the exposed **CurrentScenario** method off the `root` object
 
-# In[15]:
+# In[14]:
 
 sc=root.CurrentScenario
 
 
-# In[16]:
+# In[15]:
 
 type(sc)
 
@@ -405,7 +405,7 @@ type(sc)
 # 
 # ##### Online docs for [_IAgSCenario_](http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgScenario.html)
 
-# In[17]:
+# In[16]:
 
 sc2=sc.QueryInterface(STKObjects.IAgScenario)
 type(sc2)
@@ -419,7 +419,7 @@ type(sc2)
 # 
 # The times are conveniently in a **Gregorian** format, referencing UTC, so we don't need to convert any Date/Time units because STK's Default Date settings are to use UTCG, but it's always good to pay attention to details like this.
 
-# In[18]:
+# In[17]:
 
 sc2.SetTimePeriod("10 Jun 2016 04:00:00","11 Jun 2016 04:00:00")
 
@@ -427,7 +427,7 @@ sc2.SetTimePeriod("10 Jun 2016 04:00:00","11 Jun 2016 04:00:00")
 # and while we're at it, lets reset the Animation time for the scenario to the begining.
 # this is an action (method) that can called from the root level.
 
-# In[19]:
+# In[18]:
 
 root.Rewind();
 
@@ -444,14 +444,14 @@ root.Rewind();
 
 # The `sc` object can return a Collection of "Children" that hierarchically fall under it.  That collection also has a `New` Method we can use to create any kind of STK object that is allowed to be attached underneath the _Scenario_ level of the STK Object Browser Tree.  In the following example, we can "gang" multiple traverses through the object model using additional '.' and tab-completions, as follows:
 
-# In[20]:
+# In[19]:
 
 fac= sc.Children.New(STKObjects.eFacility,"codeFacility")
 
 
 # Now we want to define it's position, preferably using a Geodetic frame of reference.  To do that, we need to use the objects **IAgFacility** interface instead of it's **IAgStkObject** interface.
 
-# In[21]:
+# In[20]:
 
 fac2 = fac.QueryInterface(STKObjects.IAgFacility)
 fac2.Position.AssignGeodetic(38.9943,-76.8489,0)
@@ -481,7 +481,7 @@ fac2.Position.AssignGeodetic(38.9943,-76.8489,0)
 # 
 # Of course we want to do _Satellite_ things with this Object, so let's create a second `sat2` variable that's set to use the **_IAgSatellite_** interface.
 
-# In[22]:
+# In[21]:
 
 sat = sc.Children.New(STKObjects.eSatellite, "codeSat")
 sat2= sat.QueryInterface(STKObjects.IAgSatellite)
@@ -506,7 +506,7 @@ sat2= sat.QueryInterface(STKObjects.IAgSatellite)
 
 # To get a list of the allowed Propagators for this object, we can "ask" it for what's supported
 
-# In[23]:
+# In[27]:
 
 sat2.PropagatorSupportedTypes
 
@@ -517,19 +517,19 @@ sat2.PropagatorSupportedTypes
 # 
 # Now we can set the Propagator type using a related method `SetPropagatorType` and passing it the `STKObjects.ePropagatorJ2Perturbation` enumeration (which actualy resolves to the number "1")
 
-# In[24]:
+# In[28]:
 
 sat2.SetPropagatorType(STKObjects.ePropagatorJ2Perturbation)
 
 
 # Now the .Propagator "property" of the `sat2` object will return an instance of the right kind of J2Perturbation object for us to work with.
 
-# In[25]:
+# In[29]:
 
 satProp = sat2.Propagator
 
 
-# In[26]:
+# In[30]:
 
 type(satProp)
 
@@ -544,7 +544,7 @@ type(satProp)
 # 
 # and since the base interface **_IAgVePropagator_** didn't have anything useful for us to use, let's Cast `satProp` into it's **_IAgVePropagatorJ2Perturbation_** interface to see what we can do with that.
 
-# In[27]:
+# In[31]:
 
 satProp=satProp.QueryInterface(STKObjects.IAgVePropagatorJ2Perturbation)
 type(satProp)
@@ -578,7 +578,7 @@ type(satProp)
 # 
 # and via `code`:
 
-# In[28]:
+# In[32]:
 
 satProp.InitialState.Epoch="08 Jun 2016 15:14:26"
 
@@ -591,19 +591,19 @@ satProp.InitialState.Epoch="08 Jun 2016 15:14:26"
 # That includes the _Coordinate Type_ {Cartesian, Classical/Keplerian, etc...}, it's _Coordinate System of Reference_ {ICRF, J2000, B1950, etc...} and the actual parameters, as appropriate, for how the Coordinates are applied.
 # 
 
-# In[29]:
+# In[33]:
 
 type(satProp.InitialState.Representation)
 
 
 # We're going to set a new variable, `keplerian`, to the _.Representation_ when it is converted to be a Classical (i.e. Keplerian) Type of parameters.
 
-# In[30]:
+# In[34]:
 
 keplerian = satProp.InitialState.Representation.ConvertTo(STKUtil.eOrbitStateClassical)
 
 
-# In[31]:
+# In[35]:
 
 type(keplerian)
 
@@ -614,14 +614,14 @@ type(keplerian)
 # 
 # So, `keplerian2` gets assigned with the **_IAgOrbitStateClassical_** interface
 
-# In[32]:
+# In[36]:
 
 keplerian2 = keplerian.QueryInterface(STKObjects.IAgOrbitStateClassical)
 
 
 # and now we can get to work changing the Size, Location, and Orientation to suite how our Orbit State data is specified.
 
-# In[33]:
+# In[37]:
 
 keplerian2.SizeShapeType =STKObjects.eSizeShapeMeanMotion
 keplerian2.LocationType = STKObjects.eLocationMeanAnomaly
@@ -634,7 +634,7 @@ keplerian2.Orientation.AscNodeType = STKObjects.eAscNodeRAAN
 # 
 # Hanging off the `root` object is a **_UnitPreferences_** property which returns a Collection of **_IAgUnitPrefsDim_** with it's own interface **_IAgUnitPrefsDimCollection_**.  In this case, while it's possible to traverse down to each _Item_ in the collection, and modify them one layer deeper there are some "shortcuts" you can take by "ganging" calls together.  Since the Collection interface has both an **_Item_** Property as well as a **_SetCurrentUnit_** method they can be combined to make the whole process a little more streamlined as one long "call" per Dimension and Unit as follows:
 
-# In[34]:
+# In[38]:
 
 root.UnitPreferences.Item('AngleUnit').SetCurrentUnit('revs')
 root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('day')
@@ -644,7 +644,7 @@ root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('day')
 # 
 # Case in point: the SizeShape property of our `keplerian2` object. 
 
-# In[35]:
+# In[39]:
 
 type(keplerian2.SizeShape)
 
@@ -666,19 +666,19 @@ type(keplerian2.SizeShape)
 # 
 # The process looks like this:
 
-# In[36]:
+# In[40]:
 
 keplerian2.SizeShape.QueryInterface(STKObjects.IAgClassicalSizeShapeMeanMotion).MeanMotion = 15.08385840
 
 
-# In[37]:
+# In[41]:
 
 keplerian2.SizeShape.QueryInterface(STKObjects.IAgClassicalSizeShapeMeanMotion).Eccentricity = 0.0002947
 
 
 # Rememberr that our **'AngleUnit'** and **'TimeUnit'** are both still set to **'revs'** and **'days'** respectively from a few cells above. To properly assign the following angular values as degrees we need to flip-flop back to **'deg'**.  We'll change the **'TimeUnit'** as well because 'seconds' is a common default for units that we're going to be referencing later on.
 
-# In[38]:
+# In[42]:
 
 root.UnitPreferences.Item('AngleUnit').SetCurrentUnit('deg')
 root.UnitPreferences.Item('TimeUnit').SetCurrentUnit('sec')
@@ -690,7 +690,7 @@ keplerian2.Orientation.ArgOfPerigee = 114.7239
 # 
 # Again, in-line "quick-casting" to interfaces that we already know, and expect to see, can be done to streamline the code, albeit at the expense of loosing a bit of tab-completion interactivity.
 
-# In[39]:
+# In[43]:
 
 keplerian2.Orientation.AscNode.QueryInterface(STKObjects.IAgOrientationAscNodeRAAN).Value = 315.1965
 keplerian2.Location.QueryInterface(STKObjects.IAgClassicalLocationMeanAnomaly).Value = 332.9096
@@ -700,14 +700,14 @@ keplerian2.Location.QueryInterface(STKObjects.IAgClassicalLocationMeanAnomaly).V
 # 
 # <div class="alert alert-warning">This is an important step that **MUST** be done in order for the propagator to "learn" about all these updated values. Simply updating the `keplerian` variable will NOT affect the "factory" Propagator where it was produced.  It has to be explicitly Assigned back in order to take effect.<div>
 
-# In[40]:
+# In[44]:
 
 satProp.InitialState.Representation.Assign(keplerian)
 
 
 # The last step is to tell the Propagator to **_.Propagate_**.  Without this step, none of the position data will be calculated and the Satellite will remain in a partially configured state. All the properties will have been set, but the code used to to take those properties and calculate its position over its time span won't execute.
 
-# In[41]:
+# In[45]:
 
 satProp.Propagate()
 
@@ -743,7 +743,7 @@ satProp.Propagate()
 # 
 # So, for the velocity data we will be using is the "Cartesian Velocity" _Group_ name, and below it, the "J2000" _Data Provider_ Name, to hone in on the actual _Elements_ {x,y,z,etc...}
 
-# In[42]:
+# In[46]:
 
 cartVel=sat.DataProviders("Cartesian Velocity")
 type(cartVel)
@@ -751,14 +751,14 @@ type(cartVel)
 
 # We've selected the "Cartesian Velocity" group, but need to cast `cartVel` to it's **_IAgDataProviderGroup_** interface to do anything usefull with it.
 
-# In[43]:
+# In[47]:
 
 cartVel=cartVel.QueryInterface(STKObjects.IAgDataProviderGroup)
 
 
 # Now we can pull from the collection of DataProviders found in this Group the one named "J2000"
 
-# In[44]:
+# In[48]:
 
 cartVelJ2000=cartVel.Group.Item("J2000")
 type(cartVelJ2000)
@@ -766,7 +766,7 @@ type(cartVelJ2000)
 
 # again, we get back the "default" **_IAgDataProviderInfo_** interface, which won't do us much good here.  We need to cast it to the more specific **_IAgDataPrvTimeVar_** interface because it's a Time Varying type of Data Provider, and that interface will let us specify the time span over which we want the data to be generated, as well as which specific elements we want.
 
-# In[45]:
+# In[49]:
 
 cartVelJ2000TimeVar = cartVelJ2000.QueryInterface(STKObjects.IAgDataPrvTimeVar)
 type(cartVelJ2000TimeVar)
@@ -776,99 +776,76 @@ type(cartVelJ2000TimeVar)
 # 
 # We need to pass an list of these named Elements into the method call, so we need to create that list first.
 
-# In[46]:
+# In[50]:
 
 rptElements=['Time','x','y','z']
 
 
 # Now we're ready to call _ExecElements_ with a Starting and Ending Time exactly that of the Scenario's, and a time step between generated data points of 60 seconds.
 
-# In[47]:
+# In[51]:
 
 velResult=cartVelJ2000TimeVar.ExecElements(sc2.StartTime,sc2.StopTime,60,rptElements)
 type(velResult)
 
 
-# In[48]:
+# In[52]:
 
 time=velResult.DataSets.Item(0).GetValues()
 
 
-# In[49]:
+# In[53]:
 
 x=velResult.DataSets.Item(1).GetValues()
 
 
-# In[50]:
+# In[54]:
 
 y=velResult.DataSets.Item(2).GetValues()
 
 
-# In[51]:
+# In[55]:
 
 z=velResult.DataSets.Item(3).GetValues()
 
 
-# In[52]:
+# In[56]:
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# In[53]:
+# In[57]:
 
 df=pd.DataFrame({'time':time,'x':x,'y':y,'z':z});
 df
 
 
-# In[174]:
+# In[58]:
 
 df.columns
 
 
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[176]:
+# In[59]:
 
 ALTcartVelJ2000TimeVar=sat.DataProviders.GetDataPrvTimeVarFromPath("Cartesian Velocity//J2000")
 type(ALTcartVelJ2000TimeVar)
 
 
-# In[177]:
+# In[60]:
 
 ALTvelResults=ALTcartVelJ2000TimeVar.ExecElements(sc2.StartTime,sc2.StopTime,60,rptElements)
 type(ALTvelResults)
 
 
-# Close things down for a clean exit
+# Close things down for a clean exit.
+# 
+# (commented out for live use.)
 
-# In[54]:
+# In[62]:
 
-del root; 
-app.Quit();
-del app;
-
-
-# In[ ]:
-
-
+#del root; 
+#app.Quit();
+#del app;
 
