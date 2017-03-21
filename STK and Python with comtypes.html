@@ -11767,6 +11767,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div class="alert alert-info">NOTE:  intro slides have been moved to a separate notebook called: "Intro Slides.ipynb"</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="We're-going-to-need-the-following-things:">We're going to need the following things:<a class="anchor-link" href="#We're-going-to-need-the-following-things:">&#182;</a></h2><h3 id="--A-working-instance-of-Python,-complete-with-the-following-modules">- A working instance of Python, complete with the following modules<a class="anchor-link" href="#--A-working-instance-of-Python,-complete-with-the-following-modules">&#182;</a></h3><ul>
 <li>comtypes, pandas, IPython as well as a working Jupyter Notebooks environment</li>
 </ul>
@@ -11926,7 +11935,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> <span class="n">app</span><span class="o">.</span><span class="n">Visible</span><span class="o">=</span><span class="kc">True</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Visible</span><span class="o">=</span><span class="kc">True</span>
 <span class="n">app</span><span class="o">.</span><span class="n">UserControl</span><span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 
@@ -12526,7 +12535,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./images/1.SelectJ2PropagatorFromPulldown.png"/></p>
+<p><img src="images/1.SelectJ2PropagatorFromPulldown.png"/></p>
 
 </div>
 </div>
@@ -12762,7 +12771,7 @@ this is an action (method) that can called from the root level.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./images/IAgVePropagator.png" /></p>
+<p><img src="images/IAgVePropagator.png" /></p>
 <p>This visual is derived from the published PDF of the STKv11.1 Object Model Diagram found <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/ObjectModel/pdf/ObjectModel_diagram.pdf">here</a></p>
 
 </div>
@@ -12801,7 +12810,7 @@ This sequence parallels the following GUI actions:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next, change <strong>Semimajor Axis</strong> to <strong>Mean Motion</strong> and <strong>True Anomaly</strong> to <strong>Mean Anomaly</strong>
-<img src="./images/3.Classical_Orbital_Elements_MeanMotion_MeanAnomaly_RAAN.png"/></p>
+<img src="images/3.Classical_Orbital_Elements_MeanMotion_MeanAnomaly_RAAN.png"/></p>
 <p>This is a little trickier to follow.  Essentially the <em>InitialState</em>, in it's entirety, has a <strong>Representation</strong> of Type <strong><em>IAgOrbitState</em></strong> that can be manipulated.  Essentially it's the code/class/interface equivalent of all the parameters found within the dashed blue border seen above.</p>
 <p>That includes the <em>Coordinate Type</em> {Cartesian, Classical/Keplerian, etc...}, it's <em>Coordinate System of Reference</em> {ICRF, J2000, B1950, etc...} and the actual parameters, as appropriate, for how the Coordinates are applied.</p>
 
@@ -13231,9 +13240,9 @@ This sequence parallels the following GUI actions:</p>
 </li>
 </ul>
 <p>We can better understand the organization of Groups, Data Providers, and Elements found in the Object Model follows by reviewing this structure:
-<img src="./images/Report-2-DatProvider-Structure.png"/>
+<img src="images/Report-2-DatProvider-Structure.png"/>
 which bears a strinking similarity to the GUI layout of the Data Providers selector panel when customizing reports and graphs.
-<img src="./images/GUI_Report_DataProviders.png"/>
+<img src="images/GUI_Report_DataProviders.png"/>
 So when planning to pull data from STK, it's generally a good idea to be familiar with the GUI layout prior to setting up the code.  The names, relative positions in heirarchy, and contents will all help define the Interfaces we will need to be looking to work with.</p>
 
 </div>

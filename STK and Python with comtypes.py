@@ -12,6 +12,8 @@
 # #### www.agi.com
 # https://github.com/agifsnyder/STK-Integration/
 
+# <div class="alert alert-info">NOTE:  intro slides have been moved to a separate notebook called: "Intro Slides.ipynb"</div>
+
 # ## We're going to need the following things:
 # ### - A working instance of Python, complete with the following modules
 #   - comtypes, pandas, IPython as well as a working Jupyter Notebooks environment
@@ -281,7 +283,7 @@ sat2= sat.QueryInterface(STKObjects.IAgSatellite)
 # 
 # So, when the first step in defining a Satellite is the selection of the Propagator, as seen below:
 
-# <img src="./images/1.SelectJ2PropagatorFromPulldown.png"/>
+# <img src="images/1.SelectJ2PropagatorFromPulldown.png"/>
 
 # where the very first thing you do in this GUI panel is select from a dropdown of available Propagators the J2Perturbation propagator. That selection will change the GUI layout to reflect the type of propagator selected, and the data entry options that are allowed.
 # 
@@ -348,7 +350,7 @@ type(satProp)
 # 
 # 
 
-# <img src="./images/IAgVePropagator.png" />
+# <img src="images/IAgVePropagator.png" />
 # 
 # This visual is derived from the published PDF of the STKv11.1 Object Model Diagram found [here](http://help.agi.com/resources/help/online/stkdevkit/11.1/ObjectModel/pdf/ObjectModel_diagram.pdf)
 
@@ -367,7 +369,7 @@ satProp.InitialState.Epoch="08 Jun 2016 15:14:26"
 
 
 # Next, change **Semimajor Axis** to **Mean Motion** and **True Anomaly** to **Mean Anomaly**
-# <img src="./images/3.Classical_Orbital_Elements_MeanMotion_MeanAnomaly_RAAN.png"/>
+# <img src="images/3.Classical_Orbital_Elements_MeanMotion_MeanAnomaly_RAAN.png"/>
 # 
 # This is a little trickier to follow.  Essentially the _InitialState_, in it's entirety, has a **Representation** of Type **_IAgOrbitState_** that can be manipulated.  Essentially it's the code/class/interface equivalent of all the parameters found within the dashed blue border seen above.
 # 
@@ -515,9 +517,9 @@ satProp.Propagate()
 # 
 # 
 # We can better understand the organization of Groups, Data Providers, and Elements found in the Object Model follows by reviewing this structure:
-# <img src="./images/Report-2-DatProvider-Structure.png"/>
+# <img src="images/Report-2-DatProvider-Structure.png"/>
 # which bears a strinking similarity to the GUI layout of the Data Providers selector panel when customizing reports and graphs.
-# <img src="./images/GUI_Report_DataProviders.png"/>
+# <img src="images/GUI_Report_DataProviders.png"/>
 # So when planning to pull data from STK, it's generally a good idea to be familiar with the GUI layout prior to setting up the code.  The names, relative positions in heirarchy, and contents will all help define the Interfaces we will need to be looking to work with.
 
 # For our first example, we want to ouput the **_Cartesian Position_** and **_Velocity_** of the _Satellite_ that we just created.  That information will need to be specified in a particular Coordinate System, and for this report we want to use the **_J2000_** Coordinate System.
