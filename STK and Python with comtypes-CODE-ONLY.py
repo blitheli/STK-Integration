@@ -16,12 +16,14 @@ app.Left=0
 app.Width=int(GetSystemMetrics(0)/2)
 app.Height=int(GetSystemMetrics(1)-30)
 
+#%%
 # Get our IAgStkObjectRoot interface
 root=app.Personality2
 
 from comtypes.gen import STKUtil
 from comtypes.gen import STKObjects
 
+#%%
 # Create new Scenario
 root.NewScenario("IPython_DIY")
 sc=root.CurrentScenario
@@ -31,11 +33,13 @@ sc2=sc.QueryInterface(STKObjects.IAgScenario)
 sc2.SetTimePeriod("10 Jun 2016 04:00:00","11 Jun 2016 04:00:00")
 root.Rewind();
 
+#%%
 # Insert Facility and set its position
 fac= sc.Children.New(STKObjects.eFacility,"codeFacility")
 fac2 = fac.QueryInterface(STKObjects.IAgFacility)
 fac2.Position.AssignGeodetic(38.9943,-76.8489,0)
 
+#%%
 # Insert Satellite and set its orbital elements
 sat = sc.Children.New(STKObjects.eSatellite, "codeSat")
 sat2= sat.QueryInterface(STKObjects.IAgSatellite)
@@ -78,6 +82,7 @@ satProp.InitialState.Representation.Assign(keplerian)
 satProp.Propagate()
 
 
+#%%
 cartVel=sat.DataProviders("Cartesian Velocity")
 cartVel=cartVel.QueryInterface(STKObjects.IAgDataProviderGroup)
 
@@ -102,7 +107,7 @@ df=pd.DataFrame({'time':time,'x':x,'y':y,'z':z});
 #ALTcartVelJ2000TimeVar=sat.DataProviders.GetDataPrvTimeVarFromPath("Cartesian Velocity//J2000")
 
 #ALTvelResults=ALTcartVelJ2000TimeVar.ExecElements(sc2.StartTime,sc2.StopTime,60,rptElements)
-
+#%%
 #del root;
 #app.Quit();
 #del app

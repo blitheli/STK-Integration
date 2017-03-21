@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>STK and Python with comtypes</title>
+<title>Intro Slides to STK and Python with comtypes</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11749,6 +11749,36 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nbpresent</span>
+<span class="n">nbpresent</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;3.0.2&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11767,17 +11797,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="We're-going-to-need-the-following-things:">We're going to need the following things:<a class="anchor-link" href="#We're-going-to-need-the-following-things:">&#182;</a></h2><h3 id="--A-working-instance-of-Python,-complete-with-the-following-modules">- A working instance of Python, complete with the following modules<a class="anchor-link" href="#--A-working-instance-of-Python,-complete-with-the-following-modules">&#182;</a></h3><ul>
-<li>comtypes, pandas, IPython as well as a working Jupyter Notebooks environment</li>
-</ul>
-<p>Now we're going to learn something new
-The simplest way to set up the right kind of Python environment is to download the Anaconda Python installer from Continuum Analytics <a href="https://www.continuum.io/downloads">here</a>. Not only is it extremely complete in terms of useful scientific libraries, it's <strong>Free</strong> and properly licensed for both Personal as well as Commercial Use, including redistribution.
-We'll pick the right 32/64-bit version for our Windows Operating System, and it's highly recommend to stick with the Python 3.5 version (unless there is a specific dependency that's known already to have to use Python 2.7)
-It's also recommended to let the installer default to installing in the local user folders rather than in a Global {Program Files} kind of location.  <em>This avoids the need to have Administrative priviledges to perform the install.</em></p>
-<h3 id="--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">- A properly installed, and licensed, instance of STKv11.1, which can be requested <a href="http://www.agi.com/products/stk/license/">here</a>.<a class="anchor-link" href="#--A-properly-installed,-and-licensed,-instance-of-STKv11.1,-which-can-be-requested-here.">&#182;</a></h3><ul>
-<li>Specifically we will need the STK/Integration License which activates the STK API for use by external environments, like Python|Matlab|Java|etc...</li>
-</ul>
-<h3 id="--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">- A working internet connection if you wish to explore the STK Online documentation linked below in this Notebook<a class="anchor-link" href="#--A-working-internet-connection-if-you-wish-to-explore-the-STK-Online-documentation-linked-below-in-this-Notebook">&#182;</a></h3>
+<h3 id="--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">- Discover how to navigate the STK API and Automate interaction with Objects and Tools in a Scenario through scientific scripting languages like MATLAB and Python<a class="anchor-link" href="#--Discover-how-to-navigate-the-STK-API-and-Automate-interaction-with-Objects-and-Tools-in-a-Scenario-through-scientific-scripting-languages-like-MATLAB-and-Python">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11786,128 +11806,7 @@ It's also recommended to let the installer default to installing in the local us
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First we set up a few imports to gain access to their nested properties and functions.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">win32api</span> <span class="k">import</span> <span class="n">GetSystemMetrics</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
-<span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">os</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we need to import references to <code>comtypes</code> and some of it's methods so we can tie to the STK COM-based objects.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">comtypes</span>
-<span class="kn">from</span> <span class="nn">comtypes.client</span> <span class="k">import</span> <span class="n">CreateObject</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">Let's start by creating a new running instance of the STK (AgUiApplication) Application<a class="anchor-link" href="#Let's-start-by-creating-a-new-running-instance-of-the-STK-(AgUiApplication)-Application">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;STK11.Application&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If this is the first time you're running this Notebook against STKv11.1, you might see the following:</p>
-
-<pre><code># Generating comtypes.gen._781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0
-# Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
-# Generating comtypes.gen.stdole
-# Generating comtypes.gen._9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0
-# Generating comtypes.gen.AgUiCoreLib
-# Generating comtypes.gen.AgUiApplicationLib</code></pre>
-<p>as <code>comtypes</code> generates Python "wrappers" around the Classes and Interfaces found at the <strong><em>AgUiApplication</em></strong> level.</p>
-<p>let's check what kind of object we've been given back. To do that we can use the Python <code>type()</code>
-call and pass in the variable referencing the object we're interested in.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(_IAgUiApplication)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>It's important to recognize that we're getting a <strong>POINTER</strong> to the <strong><em>IAgUiApplication</em></strong> which is normal behavior for Python.  This means that this variable points-to the representation of the <strong><em>AgUiApplication</em></strong> class, or instance of that class in memory.</p>
-
+<h3 id="--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">- Learn how to use an interactive (REPL) interface in both languages to better understand how the STK API is organized<a class="anchor-link" href="#--Learn-how-to-use-an-interactive-(REPL)-interface-in-both-languages-to-better-understand-how-the-STK-API-is-organized">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11916,184 +11815,7 @@ call and pass in the variable referencing the object we're interested in.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's also point out the <strong>very</strong> important difference between the <em>Object</em> that is <strong><em>AgUiApplication</em></strong> and the <em>Interface</em> <strong><em>IAgUiApplication</em></strong> that it exposes for use. As per AGI's naming conventions used in the API, you can usually knock the <strong><em>I</em></strong> off the front end of the keyword to figure out what kind of object it is, as opposed to what kind of interface it's currently exposing.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> <span class="n">app</span><span class="o">.</span><span class="n">Visible</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">app</span><span class="o">.</span><span class="n">UserControl</span><span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As per most Windows Applications, this is where you can usually do things like position and resize the Application's main window.  Here we're going to place it on the left side of the screen, extending halfway to the right.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">Top</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">app</span><span class="o">.</span><span class="n">Left</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">app</span><span class="o">.</span><span class="n">Width</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">app</span><span class="o">.</span><span class="n">Height</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Now-lets-get-to-work.">Now lets get to work.<a class="anchor-link" href="#Now-lets-get-to-work.">&#182;</a></h4><p>We need to start using the STK Object model, and to do that we want to get a reference to the Object Model Tree itself.
-In AGI terms, we refer to the particular version of the structure of that Object Model as it's "Personality".  To date there are two existing versions of that structure, and we want to use the latest one, simply called <strong><em>Personality2</em></strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">Personality2</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If this is the first time you've run this Notebook, you'll see how the Python <code>comtypes</code> module generates Python "wrappers" around the rest of the Classes and Interfaces that are defined in the STK Object Model Tree, from the root level on down:</p>
-
-<pre><code># Generating comtypes.gen._D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0
-# Generating comtypes.gen._00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0
-# Generating comtypes.gen.STKUtil
-# Generating comtypes.gen._8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0
-# Generating comtypes.gen.AgSTKVgtLib
-# Generating comtypes.gen._42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0
-# Generating comtypes.gen.AgSTKGraphicsLib
-# Generating comtypes.gen.STKObjects</code></pre>
-<p>Two of the top-level ones we care about, and will be using repeatedly through our introductory exploration of the STK Object Model API are:</p>
-<ul>
-<li><strong>STKUtil</strong></li>
-<li><strong>STKObjects</strong></li>
-</ul>
-<p>lets keep their python "paths" in mind so we can import them later.  If you've run a python script that used <code>comtypes</code> to "touch" STK in the past, those generated wrappers will already exist in the <code>comtypes.client.gen-dir</code> folder location</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;C:\\Users\\fsnyder\\AppData\\Local\\Continuum\\Anaconda3\\lib\\site-packages\\comtypes\\gen&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">comtypes</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gen_dir</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;AgSTKGraphicsLib.py&#39;,
- &#39;AgSTKVgtLib.py&#39;,
- &#39;AgUiApplicationLib.py&#39;,
- &#39;AgUiCoreLib.py&#39;,
- &#39;stdole.py&#39;,
- &#39;STKObjects.py&#39;,
- &#39;STKUtil.py&#39;,
- &#39;STKXLib.py&#39;,
- &#39;_00020430_0000_0000_C000_000000000046_0_2_0.py&#39;,
- &#39;_00DD7BD4_53D5_4870_996B_8ADB8AF904FA_0_1_0.py&#39;,
- &#39;_42D2781B_8A06_4DB2_9969_72D6ABF01A72_0_1_0.py&#39;,
- &#39;_781C4C18_C2C9_4E16_B620_7B22BC8DE954_0_1_0.py&#39;,
- &#39;_8B49F426_4BF0_49F7_A59B_93961D83CB5D_0_1_0.py&#39;,
- &#39;_9B797FC6_9EF1_4779_9691_A85B091560A1_0_1_0.py&#39;,
- &#39;_BEF246AB_FA35_44BB_BEE8_01928B41E9A6_0_1_0.py&#39;,
- &#39;_D6A1725B_89FF_43A4_995B_7F055549F4EB_0_1_0.py&#39;,
- &#39;__init__.py&#39;,
- &#39;__pycache__&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>It's important to know where these cached python wrappers are located in case you want to remove them, like when trying to use this same script against a different version of STK.  At the time of writing this, we're using STKv11.1, so the classID's you see listed in that folder reflect the "current" version of each Type Library used by STKv11.1</p>
-<p>In general, those classID's won't change except for released updates at the "Major Number" level of STK, such as STKv9.x.x, STKv10.x.x, STKv11.x.x, etc...</p>
-<p>As a general rule of thumb, you'll want to clear the contents of the <code>gen</code> folder of the STK wrappers after you've done a major number upgrade of STK.</p>
-
+<h3 id="--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">- Determine how to leverage the iPython Notebook interface with STK to better document trade studies and present results<a class="anchor-link" href="#--Determine-how-to-leverage-the-iPython-Notebook-interface-with-STK-to-better-document-trade-studies-and-present-results">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12102,46 +11824,7 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="So,-now-let's-also-check-what-kind-of-object-we've-been-given-back.">So, now let's also check what kind of object we've been given back.<a class="anchor-link" href="#So,-now-let's-also-check-what-kind-of-object-we've-been-given-back.">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(_IAgStkObjectRoot)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The Interface is named <strong><em>IAgStkObjectRoot</em></strong> <strong>NOT</strong> <strong><em>IAgStkObject</em></strong> (no root) so it looks like a "special" kind of STK object, and it is.  The Root object in the STK API sits at the very <strong>top</strong> of the Object Heirarchy Tree.</p>
-<h4 id="From-this-root-object-we-can-reach-all-the-sub-objects,-methods,-and-properties-by-traversing-the-API-Object-Model.">From this <code>root</code> object we can reach all the sub-objects, methods, and properties by traversing the API Object Model.<a class="anchor-link" href="#From-this-root-object-we-can-reach-all-the-sub-objects,-methods,-and-properties-by-traversing-the-API-Object-Model.">&#182;</a></h4>
+<h1 id="STK-Interfaces-(over-time)">STK Interfaces (over time)<a class="anchor-link" href="#STK-Interfaces-(over-time)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12150,236 +11833,27 @@ In AGI terms, we refer to the particular version of the structure of that Object
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we're going to assign two new variables to the autogenerated Python wrappers of the STK Classes found in <code>comtypes.gen.STKObjects</code> and <code>comtypes.gen.STKUtil</code>.  These will be useful when transitioning between Interfaces exposed by each STK object we will use, as well as all the readable Enumerations (ex. eScenario = 19)</p>
-
+<h2 id="In-the-beginning...">In the beginning...<a class="anchor-link" href="#In-the-beginning...">&#182;</a></h2><p><br/></p>
+<div style="width:500px; margin: 0 auto;">
+<figure>
+  <img src="./images/InView_STKv2.0_Aug1992.png" width="100%" height="100%" style="margin: 0 auto;"/>
+  <figcaption style="text-align: center;"><strong>STK 2.0 - The GUI</strong></figcaption>
+</figure>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">comtypes.gen</span> <span class="k">import</span> <span class="n">STKUtil</span>
-<span class="kn">from</span> <span class="nn">comtypes.gen</span> <span class="k">import</span> <span class="n">STKObjects</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-let's-create-a-Scenario,-the-start-of-any-kind-of-STK-related-work">Now let's create a Scenario, the start of any kind of STK-related work<a class="anchor-link" href="#Now-let's-create-a-Scenario,-the-start-of-any-kind-of-STK-related-work">&#182;</a></h3>
+<div style="width:600px; margin: 0 auto;">
+<figure>
+  <img src="./images/InView_STKv3.0_1995.png" width="85%" height="70%" style="margin: 0 auto;"; />
+  <figcaption style="text-align: center;"><strong>STK 3.0.  NOW With Color GUI !!</strong></figcaption>
+</figure>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">NewScenario</span><span class="p">(</span><span class="s2">&quot;IPython_DIY&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>and lets set the variable <code>sc</code> to the current scenario using the exposed <strong>CurrentScenario</strong> method off the <code>root</code> object</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">CurrentScenario</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgStkObject)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The object interface we get back is of type <strong><em>IAgStkObject</em></strong> which is a generic base class for <strong>every</strong> Object found in STK.  As such, {<em>Satellites, Ships, Aircraft, Facilities</em>, etc...} ALL implement the <strong><em>IAgStkObject</em></strong> interface consistently accross their respective Classes, including the <em>Scenario</em> itself, but for our next step we need to work with <em>Scenario</em>-specific kind of properties and methods, such as the <code>SetTimePeriod()</code> method, which are only going to be found when the <code>sc</code> Object "behaves" like a <em>Scenario</em> rather than a generic StkObject, so we need to "cast" the <code>sc</code> object into it's <strong><em>IAgScenario</em></strong> Interface.</p>
-<p>We do that via the <code>QueryInterface</code>() generic method that Python added onto the <code>sc</code> object returned by STK's <code>root</code> Object, and for future convenience, simply set a different <code>sc2</code> object to that change. Now we can use both the generic <strong><em>IAgStkObject</em></strong> features of the <em>Scenario</em> by using the <code>sc</code> variable, and the more <em>Scenario</em>-specific ones of <strong><em>IAgScenario</em></strong> by using the <code>sc2</code> variable.</p>
-<p>If you forget which one represents which exposed interface at any time, you can simply use the tab-completion feature to see what Properties and Methods exist for each <code>sc</code>/<code>sc2</code> variable.</p>
-<p>We use the <code>STKObjects.IAgScenario</code> "knowledge" gained when the STK Type Libraries were scanned and those equivalent Python Classes created. Both <code>sc</code> and <code>sc2</code> "point" to the very same object, but different exposed interfaces.</p>
-<h5 id="Online-docs-for-IAgSTKObject">Online docs for <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgStkObject.html"><em>IAgSTKObject</em></a><a class="anchor-link" href="#Online-docs-for-IAgSTKObject">&#182;</a></h5><h5 id="Online-docs-for-IAgSCenario">Online docs for <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgScenario.html"><em>IAgSCenario</em></a><a class="anchor-link" href="#Online-docs-for-IAgSCenario">&#182;</a></h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgScenario</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">sc2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgScenario)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that it's implementing the right interface, we can set the Time Period to be what we want</p>
-<table>
-<tr><td>Start Time</td><td>10 Jun 2016 04:00:00 UTCG</td></tr>
-<tr><td>Stop Time</td><td>11 Jun 2016 04:00:00 UTCG</td></tr>
-</table><p>The times are conveniently in a <strong>Gregorian</strong> format, referencing UTC, so we don't need to convert any Date/Time units because STK's Default Date settings are to use UTCG, but it's always good to pay attention to details like this.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc2</span><span class="o">.</span><span class="n">SetTimePeriod</span><span class="p">(</span><span class="s2">&quot;10 Jun 2016 04:00:00&quot;</span><span class="p">,</span><span class="s2">&quot;11 Jun 2016 04:00:00&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>and while we're at it, lets reset the Animation time for the scenario to the begining.
-this is an action (method) that can called from the root level.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">Rewind</span><span class="p">();</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Next-we-need-to-create-a-Facility-on-the-ground">Next we need to create a Facility on the ground<a class="anchor-link" href="#Next-we-need-to-create-a-Facility-on-the-ground">&#182;</a></h3><p>It's position will be defined by Latitude, Longitude and Altitude, which are traditionally termed <strong>Geodetic</strong> coordinates.</p>
-<table>
-<tr><td>Latitude</td><td>38.9943 deg</td></tr>
-<tr><td>Longitude</td><td>-76.8489 deg (- implies West)</td></tr>
-<tr><td>Altitude (above WGS84)</td><td>0 m</td></tr>
-</table>
 </div>
 </div>
 </div>
@@ -12388,98 +11862,36 @@ this is an action (method) that can called from the root level.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So let's first create the Facility, using the sc object and it's <strong><em>IAgStkObject</em></strong> Interface</p>
-
+<div style="width:800px; margin: 0 auto;">
+ <div style="width:350px; display: inline-block; float:left; margin: 0 auto; ">
+  <figure>
+   <img src="./images/InView_ColorBrowserWindow_1995.png" width="80%" height="50%" style="margin: 0 auto; "/>
+   <figcaption style="font-size: large; text-align: center;"><strong>STK3.0 Object Browser.</strong></figcaption>
+  </figure>
+ </div><div style="width:350px; display: inline-block; float:right; margin: 0 auto;">
+  <figure>
+   <img src="./images/InView_FeedbackOnSTK3.0_IPC_1995.png" width="80%" height="50%" style="margin: 0 auto;"/>
+   <figcaption style="font-size: large; text-align: center;"><strong>Feedback of STK3.0 IPCv2.0.<strong></figcaption>
+  </figure>
+ </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>sc</code> object can return a Collection of "Children" that hierarchically fall under it.  That collection also has a <code>New</code> Method we can use to create any kind of STK object that is allowed to be attached underneath the <em>Scenario</em> level of the STK Object Browser Tree.  In the following example, we can "gang" multiple traverses through the object model using additional '.' and tab-completions, as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac</span><span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eFacility</span><span class="p">,</span><span class="s2">&quot;codeFacility&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we want to define it's position, preferably using a Geodetic frame of reference.  To do that, we need to use the objects <strong>IAgFacility</strong> interface instead of it's <strong>IAgStkObject</strong> interface.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fac2</span> <span class="o">=</span> <span class="n">fac</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgFacility</span><span class="p">)</span>
-<span class="n">fac2</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">AssignGeodetic</span><span class="p">(</span><span class="mf">38.9943</span><span class="p">,</span><span class="o">-</span><span class="mf">76.8489</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-we-want-to-create-a-satellite-with-the-following-characteristics:">Now we want to create a satellite with the following characteristics:<a class="anchor-link" href="#Now-we-want-to-create-a-satellite-with-the-following-characteristics:">&#182;</a></h3><ul>
-<li>Use the J2 Propagator</li>
-<li>Use Classical (keplerian) Elements, but slightly modified from "traditional" Classical Elements<ul>
-<li><strong>Mean Motion</strong> for the size instead of Semi-Major Axis</li>
-<li><strong>Mean Anomaly</strong> for the location in the orbit instead of True Anomaly</li>
+<h2 id="STK/IPC">STK/IPC<a class="anchor-link" href="#STK/IPC">&#182;</a></h2><ul>
+<li><strong>A text-based, CLI-like syntax over TCP/IP</strong><ul>
+<li><code>New / Scenario "My_New_Scenario"</code></li>
+<li><code>SetPosition */Satellite/Shuttle LLA "1 Nov 2000 04:01:00.00" -19 8 372800 -0.23 0.058 0.002</code></li>
+<li><code>Report_RM */Satellite/Shuttle Style "Lighting Times" TimePeriod "1 Nov 2000 00:00:00.00" "1 Nov 2000 04:00:00.00" TimeStep 30</code></li>
 </ul>
 </li>
 </ul>
-<p>We also want to use slightly different units for the Mean Motion (revs/day)</p>
-<table>
-<th>Specific Values</th>
-<tr><td>Orbit Epoch (state Epoch)</td><td>08 Jun 2016 15:14:26</td></tr>
-<tr><td>Mean Motion</td><td>15.08385840 revs/day</td></tr>
-<tr><td>Eccentricity</td><td>0.0002947</td></tr>
-<tr><td>Inclination</td><td>28.4703 deg</td></tr>
-<tr><td>Argument of Perigee</td><td>114.7239 deg</td></tr>
-<tr><td>RAAN</td><td>315.1965 deg</td></tr>
-<tr><td>Mean Anomaly</td><td>332.9096 deg</td></tr>
-</table>
+<div class="alert alert-info">rebranded as "STK/Connect"</div>
 </div>
 </div>
 </div>
@@ -12488,753 +11900,182 @@ this is an action (method) that can called from the root level.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First we create the new "codeSat" Satellite object in the same way we created the Facility, but using a different <code>STKObjects.eSatellite</code> enumeration.  That object, of default Type <strong><em>IAgStkObject</em></strong> gets reflected in the <code>sat</code> variable.</p>
-<p>Of course we want to do <em>Satellite</em> things with this Object, so let's create a second <code>sat2</code> variable that's set to use the <strong><em>IAgSatellite</em></strong> interface.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">Children</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSatellite</span><span class="p">,</span> <span class="s2">&quot;codeSat&quot;</span><span class="p">)</span>
-<span class="n">sat2</span><span class="o">=</span> <span class="n">sat</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgSatellite</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There is a "pattern" to how a Satellite is created, it's properties defined, and it's propagator asked to calculate it's position over a specified time period.  That pattern can be easily understood by following the sequence of actions performed in the GUI when setting up a Satellite.</p>
-<div class="alert alert-info">NOTE: This same philosophy applies to working with any other STK object as well.</div><p><strong>When laying out the STK Object Model hierarchial structure back in STKv5.0, when it first appeared, the developers chose to mimic the functional layout of the GUI, but in code.</strong></p>
-<p>So, by simply remembering how we set up an object in the GUI (mouse clicks and selections), we have a basic "roadmap" for how to do the same in code.  The <strong>sequence</strong> of events done in the GUI usually needs to be replicated in a similar sequential fashion using code.</p>
-<p>So, when the first step in defining a Satellite is the selection of the Propagator, as seen below:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./images/1.SelectJ2PropagatorFromPulldown.png"/></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>where the very first thing you do in this GUI panel is select from a dropdown of available Propagators the J2Perturbation propagator. That selection will change the GUI layout to reflect the type of propagator selected, and the data entry options that are allowed.</p>
-<p>Here's the code equivalent:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To get a list of the allowed Propagators for this object, we can "ask" it for what's supported</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">PropagatorSupportedTypes</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>((16, &#39;11Parameter&#39;),
- (12, &#39;Astrogator&#39;),
- (14, &#39;GPS&#39;),
- (0, &#39;HPOP&#39;),
- (1, &#39;J2Perturbation&#39;),
- (2, &#39;J4Perturbation&#39;),
- (3, &#39;LOP&#39;),
- (13, &#39;RealTime&#39;),
- (4, &#39;SGP4&#39;),
- (17, &#39;SP3&#39;),
- (5, &#39;SPICE&#39;),
- (6, &#39;StkExternal&#39;),
- (7, &#39;TwoBody&#39;),
- (8, &#39;UserExternal&#39;))</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>and we see that J2Perturbation is available, along with a few others that have been activated by the valid licenses that STK saw on startup.</p>
-<div class="alert alert-info">NOTE: Only items that are activated by valid licenses will show up in this list, or be available when assignining at runtime.</div><p>Now we can set the Propagator type using a related method <code>SetPropagatorType</code> and passing it the <code>STKObjects.ePropagatorJ2Perturbation</code> enumeration (which actualy resolves to the number "1")</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sat2</span><span class="o">.</span><span class="n">SetPropagatorType</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">ePropagatorJ2Perturbation</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now the .Propagator "property" of the <code>sat2</code> object will return an instance of the right kind of J2Perturbation object for us to work with.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span> <span class="o">=</span> <span class="n">sat2</span><span class="o">.</span><span class="n">Propagator</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgVePropagator)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>satProp</code> is currently showing that it's exposing an <strong><em>IAgVePropagator</em></strong> interface. Looking up that "<em>IAgVePropagator</em>" keyword in the docs returns a page showing co-Classes that implement <strong><em>IAgPropagator</em></strong>. That means that all these <strong><em>AgVe</em></strong>... Classes also reference and expose the <strong><em>IAgVePropagator</em></strong> interface, and possibly other interfaces as well.</p>
-<p>The class <strong><em>AgVePropagatorJ2Perturbation</em></strong> looks interesting and is more applicable to our needs, so lets take a closer look at that...</p>
-<p>It has 2 Interfaces:</p>
 <ul>
-<li><strong><em>IAgVePropagator</em></strong> : Base vehicle propagator interface, with no properties or methods</li>
-<li><strong><em>IAgVePropagatorJ2Perturbation</em></strong> : Class defining the J2 perturbation propagator</li>
+<li>PLUS: Syntax was human readable</li>
+<li><span style="background:black; color:white; padding:2px;"> MINUS: Error reporting wasn't </span></li>
 </ul>
-<p>and since the base interface <strong><em>IAgVePropagator</em></strong> didn't have anything useful for us to use, let's Cast <code>satProp</code> into it's <strong><em>IAgVePropagatorJ2Perturbation</em></strong> interface to see what we can do with that.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">=</span><span class="n">satProp</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgVePropagatorJ2Perturbation</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgVePropagatorJ2Perturbation)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is one of the strange cases in the STK Object Model where we initially get an "object" exposing a generic base Interface (<strong><em>IAgVePropagator</em></strong>), but there is no equivalent <strong><em>AgVePropagator</em></strong> (base) class or object that goes along with it.  There isn't even one in the documentation.  Instead, this propagator object is <strong>already</strong> an instamce of the specific <strong><em>AgVePropagatorJ2Perturbation</em></strong> class of object because it came out of the <em>Satellite</em> object <strong>after</strong> it had been configured to use the J2Perturbation propagator.  It was an <strong><em>AgVePropagatorJ2Perturbation</em></strong> when the satProp variable was assigned, but it simply reverted to the most base-level's of interfaces that it had, the <strong><em>IAgVePropagator</em></strong> interface.</p>
-<p>So, if we had, just out of curiosity, tried to cast <code>satProp</code>'s interface over to an <strong><em>IAgVePropagatorJ4Perturbation</em></strong> (which is similar) we would get an error because that interface doesn't exist for a J2Perturbation propagator.</p>
-<p>Also, you cannot simply create an instance AgVePropagatorJ2Perturbation from scratch.  It has to be manufactured by a <em>Satellite</em> object, specifically when that object is exposing it's <strong><em>IAgSatellite</em></strong> interface.  This behavior, in a manner of speaking, conforms to the "Factory" design pattern often used in Object Oriented programming.  Only certain factories (object class) can produce certain objects, and only when running in a particular way (interface).</p>
-<p>This also means that if you wanted, for whatever reason, to change the propagator in use, you would have to go BACK UP to the <code>sat2</code> object, change it's selected propagator to what you wanted, and re-request the <code>.Propagator</code> property to get the changed propagator object back out of it.</p>
-<p>This very particular workflow is reflected in the GUI behavior as well.  You would need to go back to the top of the GUI panel, change the Propagator selected from the dropdown list and THEN start making changes to the propagator settings.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Moving forwards through the Propagator setup, we can see from the Object Model "roadmap" below that the InitialState property obtained from the <strong><em>IAgVePropagatorJ2Perturbation</em></strong> interface will have an <strong><em>IAgVeJxInitialState</em></strong>.  The <strong><em>Jx</em></strong> is there because this exact same interface is available for the J4Perturbation propagator as well.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./images/IAgVePropagator.png" /></p>
-<p>This visual is derived from the published PDF of the STKv11.1 Object Model Diagram found <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/ObjectModel/pdf/ObjectModel_diagram.pdf">here</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Setting-the-Initial-State">Setting the Initial State<a class="anchor-link" href="#Setting-the-Initial-State">&#182;</a></h4><p>Now we need to set up the Initial State conditions for this J2Perturbation propagator.
-This sequence parallels the following GUI actions:</p>
-<p>First, set the <strong>Orbit Epoch</strong> Time (GUI):
-<img src="./images/2.Set_OrbitEpoch.png"/></p>
-<p>and via <code>code</code>:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Epoch</span><span class="o">=</span><span class="s2">&quot;08 Jun 2016 15:14:26&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, change <strong>Semimajor Axis</strong> to <strong>Mean Motion</strong> and <strong>True Anomaly</strong> to <strong>Mean Anomaly</strong>
-<img src="./images/3.Classical_Orbital_Elements_MeanMotion_MeanAnomaly_RAAN.png"/></p>
-<p>This is a little trickier to follow.  Essentially the <em>InitialState</em>, in it's entirety, has a <strong>Representation</strong> of Type <strong><em>IAgOrbitState</em></strong> that can be manipulated.  Essentially it's the code/class/interface equivalent of all the parameters found within the dashed blue border seen above.</p>
-<p>That includes the <em>Coordinate Type</em> {Cartesian, Classical/Keplerian, etc...}, it's <em>Coordinate System of Reference</em> {ICRF, J2000, B1950, etc...} and the actual parameters, as appropriate, for how the Coordinates are applied.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgOrbitState)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We're going to set a new variable, <code>keplerian</code>, to the <em>.Representation</em> when it is converted to be a Classical (i.e. Keplerian) Type of parameters.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian</span> <span class="o">=</span> <span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">ConvertTo</span><span class="p">(</span><span class="n">STKUtil</span><span class="o">.</span><span class="n">eOrbitStateClassical</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgOrbitState)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>despite being "converted" to <strong><code>eOrbitStateClassical</code></strong> the <code>keplerian</code> object is still exposing the generic "base" <strong><em>IAgOrbitState</em></strong> interface.  We want the more specific, and applicable to our type of data, <strong><em>IAgOrbitStateClassical</em></strong> interface where we can make some changes to how both the <em>Size</em> of the orbit (<em>MeanMotion</em>) and the <em>Location</em> (<em>MeanAnomaly</em>) in the orbit is specified.</p>
-<div class="alert alert-info">NOTE: It's only because we want to specify these alternative _MeanMotion_ and _MeanAnomaly_ parameters, because they're convenient to describing the orbit we want, that we have to go to this extra level of detail.  The base **_IAgOrbitState_** interface actually has a few "helper" methods such as _AssignClassical_ where the "traditional" Keplerian elements can be set all at once.</div><p>So, <code>keplerian2</code> gets assigned with the <strong><em>IAgOrbitStateClassical</em></strong> interface</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span> <span class="o">=</span> <span class="n">keplerian</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrbitStateClassical</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>and now we can get to work changing the Size, Location, and Orientation to suite how our Orbit State data is specified.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShapeType</span> <span class="o">=</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">eSizeShapeMeanMotion</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">LocationType</span> <span class="o">=</span> <span class="n">STKObjects</span><span class="o">.</span><span class="n">eLocationMeanAnomaly</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNodeType</span> <span class="o">=</span> <span class="n">STKObjects</span><span class="o">.</span><span class="n">eAscNodeRAAN</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>One last thing we need to do prior to setting values and that's to make sure that the Units will match those of our values.  Again this parallels the GUI actions in selecting what's approriate from the unit drop-downs.</p>
-<div class="alert alert-info">NOTE: Each instance of an STK Root object can have **ONLY ONE** global set of units at any particular time.  So if you have values that are specified in multiple different units for a single kind of measurement type (angles, distance, etc...) you'll need to flip-flop to the right Unit prior to setting & assigning it.</div><p>Hanging off the <code>root</code> object is a <strong><em>UnitPreferences</em></strong> property which returns a Collection of <strong><em>IAgUnitPrefsDim</em></strong> with it's own interface <strong><em>IAgUnitPrefsDimCollection</em></strong>.  In this case, while it's possible to traverse down to each <em>Item</em> in the collection, and modify them one layer deeper there are some "shortcuts" you can take by "ganging" calls together.  Since the Collection interface has both an <strong><em>Item</em></strong> Property as well as a <strong><em>SetCurrentUnit</em></strong> method they can be combined to make the whole process a little more streamlined as one long "call" per Dimension and Unit as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;revs&#39;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;TimeUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>One anoying detail about how Python and the comtypes module works when interacting with Microsoft COM objects is that when a new object is referenced, if it's capable of exposing multiple Interfaces, the lowest or base class of the bunch is automatically selected, even if it doesn't have any usefull methods or properties.</p>
-<p>Case in point: the SizeShape property of our <code>keplerian2</code> object.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgClassicalSizeShape)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that despite having been "set" to a Type enumeration of <em>eSizeShapeMeanMotion</em> a few cells above, it still defaults to the <strong><em>IAgClassicalSizeShape</em></strong> interface, which is simply a base class for all the following co-classes:</p>
 <ul>
-<li><strong><em>AgClassicalSizeShapeAltitude</em></strong></li>
-<li><strong><em>AgClassicalSizeShapeMeanMotion</em></strong></li>
-<li><strong><em>AgClassicalSizeShapePeriod</em></strong></li>
-<li><strong><em>AgClassicalSizeShapeRadius</em></strong></li>
-<li><strong><em>AgClassicalSizeShapeSemimajorAxis</em></strong></li>
-<li><strong><em>AgEquinoctialSizeShapeMeanMotion</em></strong></li>
-<li><strong><em>AgEquinoctialSizeShapeSemimajorAxis</em></strong></li>
+<li>PLUS: Simple to form</li>
+<li><span style="background:black; color:white;  padding:2px;"> MINUS: Limited because of Strings < 255 characters </span></li>
 </ul>
-<p>each of which having an equivalently specific {...|Altitude|MeanMotion|Period|Radius|SemimajorAxis} Interface as well as the <strong><em>IAgClassicalSizeShape</em></strong> base interface.</p>
-<p>Since our SizeShape is actually an instance of the <strong><em>AgClassicalSizeShapeMeanMotion</em></strong> class, the only usefull &amp; specific interface is the <strong><em>IAgClassicalSizeShapeMeanMotion</em></strong> one.</p>
-<p>Knowing this apriori, as we get more familiar reading through how the documentation is structured, we can "quick-cast" the interface into the interface that we know will work for us, tacking on the <strong><em>.MeanMotion</em></strong> property because we know it's going to be there.</p>
-<p>The process looks like this:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">MeanMotion</span> <span class="o">=</span> <span class="mf">15.08385840</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">SizeShape</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalSizeShapeMeanMotion</span><span class="p">)</span><span class="o">.</span><span class="n">Eccentricity</span> <span class="o">=</span> <span class="mf">0.0002947</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Rememberr that our <strong>'AngleUnit'</strong> and <strong>'TimeUnit'</strong> are both still set to <strong>'revs'</strong> and <strong>'days'</strong> respectively from a few cells above. To properly assign the following angular values as degrees we need to flip-flop back to <strong>'deg'</strong>.  We'll change the <strong>'TimeUnit'</strong> as well because 'seconds' is a common default for units that we're going to be referencing later on.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;AngleUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">UnitPreferences</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s1">&#39;TimeUnit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SetCurrentUnit</span><span class="p">(</span><span class="s1">&#39;sec&#39;</span><span class="p">)</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">Inclination</span> <span class="o">=</span> <span class="mf">28.4703</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">ArgOfPerigee</span> <span class="o">=</span> <span class="mf">114.7239</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Once again, the "base Class" Interface selection mechanism used by Python is going to trip us up.  For the <code>keplerian2</code> object both the <strong><em>.Orientation.AscNode</em></strong> and <strong><em>.Location</em></strong> will default to fairly useless <strong><em>IAgOrientationAscNode</em></strong> and <strong><em>IAgClassicalLocation</em></strong> interfaces respectively.  We need the <strong><em>.Orientation.AscNode</em></strong> returned object to expose its <strong><em>IAgOrientationAscNodeRAAN</em></strong> interface in order to set the RAAN Value.  We also want the <strong><em>.Location</em></strong> returned object to expose its <strong><em>IAgClassicalLocationMeanAnomaly</em></strong> interface so we can set the Mean Anomaly value as well.</p>
-<p>Again, in-line "quick-casting" to interfaces that we already know, and expect to see, can be done to streamline the code, albeit at the expense of loosing a bit of tab-completion interactivity.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">keplerian2</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">AscNode</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgOrientationAscNodeRAAN</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">315.1965</span>
-<span class="n">keplerian2</span><span class="o">.</span><span class="n">Location</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgClassicalLocationMeanAnomaly</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mf">332.9096</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We're almost done with this Propagator.  Now that all the properties are properly set in the <code>keplerian</code> object, we can Assign it back into the InitialState.Representation of the propagator itself.</p>
-<p><div class="alert alert-warning">This is an important step that <strong>MUST</strong> be done in order for the propagator to "learn" about all these updated values. Simply updating the <code>keplerian</code> variable will NOT affect the "factory" Propagator where it was produced.  It has to be explicitly Assigned back in order to take effect.<div></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">InitialState</span><span class="o">.</span><span class="n">Representation</span><span class="o">.</span><span class="n">Assign</span><span class="p">(</span><span class="n">keplerian</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The last step is to tell the Propagator to <strong><em>.Propagate</em></strong>.  Without this step, none of the position data will be calculated and the Satellite will remain in a partially configured state. All the properties will have been set, but the code used to to take those properties and calculate its position over its time span won't execute.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">satProp</span><span class="o">.</span><span class="n">Propagate</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Getting-Data-Out----Data-Providers-and-STK-GUI-Reports">Getting Data Out -  Data Providers and STK GUI Reports<a class="anchor-link" href="#Getting-Data-Out----Data-Providers-and-STK-GUI-Reports">&#182;</a></h2><h3 id="STK-Objects-and-the-Data-they-can-provide">STK Objects and the Data they can provide<a class="anchor-link" href="#STK-Objects-and-the-Data-they-can-provide">&#182;</a></h3><p>Every <strong><em>AgStkObject</em></strong>, through it's <strong><em>IAgStkObject</em></strong> interface, will expose a <strong><em>.DataProviders</em></strong> property that will return a Collection of valid DataProvider Groups for that type of object.</p>
-<p>Each <em>Item()</em> of the returned <strong><em>IAgDataProviderCollection</em></strong> conforms to an <strong><em>IAgDataProviderInfo</em></strong> interface in addition to exposing one of the three interfaces listed below.</p>
-<p>The <strong><em>IAgDataProviderInfo</em></strong> interface is another "base" and common interface that only has a few properties a single method.  Essentially, it provides the human-readable <em>Name</em> for the Data Provider as well as the <em>Type</em> of Data Provider it is.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Data Providers fall into 3 basic categories, or Types:</p>
 <ul>
-<li>Static Data, defined in the <strong><em>AgDataPrvFixed</em></strong> Class and handled through the <strong><em>IAgDataPrvFixed</em></strong> Interface.<ul>
-<li>examples of this would be Fixed position information, object initial state data, and other parameters that won't vary over time.</li>
+<li>PLUS: "Easy" to request Data</li>
+<li><span style="background:black; color:white; padding:2px; "> MINUS: Parsing returned Data was "hard" </span></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="alert alert-warning">"Connect" drove the Comp-Sci guys nuts...</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="~2002/'03---STKv5.0">~2002/'03 - STKv5.0<a class="anchor-link" href="#~2002/'03---STKv5.0">&#182;</a></h2><p><div style="width:600px;  margin: 0 auto;">
+ <figure>
+  <img src="./images/InView_ExperienceSTK5.0_UC2003.png"  width="100%" height="70%" style="margin: 0 auto;"/>
+  <figcaption style="text-align: center;"><strong>STK 5.0 Object Model</strong></figcaption>
+ </figure>
+</div></p>
+<h3 id="The-STK-Object-Model">The STK Object Model<a class="anchor-link" href="#The-STK-Object-Model">&#182;</a></h3><ul>
+<li>Windows COM based</li>
+<li>Classes/Interfaces/Events</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="But-how-to-organize-it-?">But how to organize it ?<a class="anchor-link" href="#But-how-to-organize-it-?">&#182;</a></h2><p><br/></p>
+<p><div style="width:400px; margin: 0 auto;">
+ <figure>
+  <img src="./images/chicken-or-egg.png" width="90%" height="80%" style="margin: 0 auto;"/>
+  <figcaption style="text-size: small; text-align: center;"></strong>Which Comes FIRST?</strong></figcaption>
+ </figure>
+</div>
+<br/></p>
+<h2 id="Go-back-to-the-begining...--The-GUI-!!">Go back to the begining...  The GUI !!<a class="anchor-link" href="#Go-back-to-the-begining...--The-GUI-!!">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>STK Object Model Diagram(s)</p>
+<div style="width:800px; margin: 0 auto;">
+  <img src="./images/STK_OM_page1-subset.png" width="100%" height="100%"  style="margin: 0 auto;"/>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="STK-(Engine)-Programming--Documentation-(online)">STK (Engine) Programming  Documentation <a href="http://help.agi.com/stkdevkit/index.html">(online)</a><a class="anchor-link" href="#STK-(Engine)-Programming--Documentation-(online)">&#182;</a></h3><ul>
+<li>ex. <strong><em>IAgStkObject</em></strong> <a href="http://help.agi.com/resources/help/online/stkdevkit/11.1/index.html?page=source%2Fextfile%2FSTKObjects%2FSTKObjects~IAgStkObject.html">docs</a></li>
+</ul>
+<p><br/></p>
+<h3 id="STK-Object-Model-Diagrams-(online)">STK Object Model Diagrams <a href="http://help.agi.com/stkdevkit/ObjectModel/pdf/ObjectModel_diagram.pdf">(online)</a><a class="anchor-link" href="#STK-Object-Model-Diagrams-(online)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Object-Oriented-Programming">Object-Oriented Programming<a class="anchor-link" href="#Object-Oriented-Programming">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Snyder's-(very-short)-Course-on-Object-Oriented-&quot;stuff&quot;">Snyder's (very short) Course on Object Oriented "stuff"<a class="anchor-link" href="#Snyder's-(very-short)-Course-on-Object-Oriented-&quot;stuff&quot;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The--Edition">The <img src="images/marvel.png" style=" height: 100px; display: inline-block; margin: 0 auto; " /> Edition<a class="anchor-link" href="#The--Edition">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Objects">Objects<a class="anchor-link" href="#Objects">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div style="width:600px;  margin: 0 auto;">
+  <img src="images/hulk-banner.jpg" style="margin: 0 auto; "/>
+</div>
+<br/></p>
+<h3 style="text-align:center;">Object Name = "AgBigGuy"</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Object-AgBigGuy-has-2-Interfaces">Object <strong><em>AgBigGuy</em></strong> has 2 Interfaces<a class="anchor-link" href="#Object-AgBigGuy-has-2-Interfaces">&#182;</a></h2><p><br></p>
+<ul>
+<li><strong><em>IAgBigGuyBanner</em></strong></li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong><em>IAgBigGuyHulk</em></strong> </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="IAgBigGuyBanner"><strong><em>IAgBigGuyBanner</em></strong><a class="anchor-link" href="#IAgBigGuyBanner">&#182;</a></h3><ul>
+<li>Properties<ul>
+<li>.size</li>
+<li>.skinTone</li>
+<li>.attitude</li>
 </ul>
 </li>
-<li>Time Varying (TimeSeries) Data, defined in the <strong><em>AGDataPrvTimeVar</em></strong> Class and handled through the <strong><em>IAgDataPrvTimeVar</em></strong> Interface.<ul>
-<li>examples of this would be position data for moving vehicles reported over a time interval at specified time steps.</li>
+<li>Methods<ul>
+<li>.talk</li>
+<li>.think</li>
+<li>.DoScience</li>
+<li>.smash   (damage = minor)</li>
 </ul>
 </li>
-<li>Time Intervals, defined in the <strong><em>AGDataPrvInterval</em></strong> Class and handled through the <strong><em>IAgDataPrvInterval</em></strong> Interface.<ul>
-<li>examples of this would be Start|Stop Date/Time values for one or more time intervals, such as Access, No_Access, etc...</li>
+<li>Events<ul>
+<li>.GettingAngry</li>
 </ul>
 </li>
 </ul>
-<p>We can better understand the organization of Groups, Data Providers, and Elements found in the Object Model follows by reviewing this structure:
-<img src="./images/Report-2-DatProvider-Structure.png"/>
-which bears a strinking similarity to the GUI layout of the Data Providers selector panel when customizing reports and graphs.
-<img src="./images/GUI_Report_DataProviders.png"/>
-So when planning to pull data from STK, it's generally a good idea to be familiar with the GUI layout prior to setting up the code.  The names, relative positions in heirarchy, and contents will all help define the Interfaces we will need to be looking to work with.</p>
 
 </div>
 </div>
@@ -13244,862 +12085,188 @@ So when planning to pull data from STK, it's generally a good idea to be familia
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For our first example, we want to ouput the <strong><em>Cartesian Position</em></strong> and <strong><em>Velocity</em></strong> of the <em>Satellite</em> that we just created.  That information will need to be specified in a particular Coordinate System, and for this report we want to use the <strong><em>J2000</em></strong> Coordinate System.</p>
-<p>Both of those data groups are Time Varying (TimeSeries) data types, so we know we'll need to work with the <strong><em>IAgDataPrvTimeVar</em></strong> interface as part of the process.</p>
-<p>So, for the velocity data we will be using is the "Cartesian Velocity" <em>Group</em> name, and below it, the "J2000" <em>Data Provider</em> Name, to hone in on the actual <em>Elements</em> {x,y,z,etc...}</p>
+<h3 id="IAgBigGuyHulk"><strong><em>IAgBigGuyHulk</em></strong><a class="anchor-link" href="#IAgBigGuyHulk">&#182;</a></h3><ul>
+<li>Properties<ul>
+<li>.size</li>
+<li>.skinTone</li>
+<li>.attitude</li>
+</ul>
+</li>
+<li>Methods<ul>
+<li>.smash (damage = extreme)</li>
+<li>.meditate </li>
+</ul>
+</li>
+<li>Events<ul>
+<li>.GettingReallyAngry</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVel</span><span class="o">=</span><span class="n">sat</span><span class="o">.</span><span class="n">DataProviders</span><span class="p">(</span><span class="s2">&quot;Cartesian Velocity&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">cartVel</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataProviderInfo)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We've selected the "Cartesian Velocity" group, but need to cast <code>cartVel</code> to it's <strong><em>IAgDataProviderGroup</em></strong> interface to do anything usefull with it.</p>
-
+<div class="alert alert-warning">Objects are everything, but pay attention to the Interfaces</div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVel</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataProviderGroup</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we can pull from the collection of DataProviders found in this Group the one named "J2000"</p>
-
+<p><div style="width:600px;  margin: 0 auto;">
+  <img src="images/hulk-meditate.jpg" style="width:80%; margin: 0 auto; "/>
+</div>
+<br/></p>
+<h3 style="text-align:center;">OM... OM...</h3>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000</span><span class="o">=</span><span class="n">cartVel</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="s2">&quot;J2000&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataProviderInfo)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>again, we get back the "default" <strong><em>IAgDataProviderInfo</em></strong> interface, which won't do us much good here.  We need to cast it to the more specific <strong><em>IAgDataPrvTimeVar</em></strong> interface because it's a Time Varying type of Data Provider, and that interface will let us specify the time span over which we want the data to be generated, as well as which specific elements we want.</p>
-
+<h1 id="Coding-Environments">Coding Environments<a class="anchor-link" href="#Coding-Environments">&#182;</a></h1>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cartVelJ2000TimeVar</span> <span class="o">=</span> <span class="n">cartVelJ2000</span><span class="o">.</span><span class="n">QueryInterface</span><span class="p">(</span><span class="n">STKObjects</span><span class="o">.</span><span class="n">IAgDataPrvTimeVar</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">cartVelJ2000TimeVar</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we're going to use the <strong><em>ExecElements</em></strong> method to return ONLY the {Time,x,y,z} values rather than the entire {Time,x,y,z,speed,radial,in-track} list of <em>Elements</em> that exist for the J2000 <em>Data Provider</em> found in the Cartesian Velocity <em>Group</em>.</p>
-<p>We need to pass an list of these named Elements into the method call, so we need to create that list first.</p>
+<h2 id="Selecting-an-environment-and-language">Selecting an environment and language<a class="anchor-link" href="#Selecting-an-environment-and-language">&#182;</a></h2><p><br/></p>
+<p><div style="width:600px;  margin: 0 auto;">
+  <img src="images/scale-of-coding-languages.png" style="width:100%; margin: 0 auto; "/>
+</div>
+<br/></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rptElements</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we're ready to call <em>ExecElements</em> with a Starting and Ending Time exactly that of the Scenario's, and a time step between generated data points of 60 seconds.</p>
+<ul>
+<li>Things You <strong>Need</strong> In your Coding Environment<ul>
+<li>COM Support (Late or Early)</li>
+</ul>
+</li>
+<li>Things You <strong>Want</strong> in your Coding Environment (for learning)<ul>
+<li>R.E.P.L (Read-Evaluate-Print-Loop)</li>
+<li>Tab-completion (Intellisense)</li>
+<li>Libraries</li>
+<li>Text Editor with Syntax Highlighting</li>
+<li>Pretty Output</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">velResult</span><span class="o">=</span><span class="n">cartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">velResult</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDrResult)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="n">velResult</span><span class="o">.</span><span class="n">DataSets</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="n">z</span><span class="p">});</span>
-<span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>time</th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10 Jun 2016 04:00:00.000000000</td>
-      <td>-6.932515</td>
-      <td>-0.060174</td>
-      <td>-3.094559</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10 Jun 2016 04:01:00.000000000</td>
-      <td>-6.857958</td>
-      <td>-0.541188</td>
-      <td>-3.211614</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10 Jun 2016 04:02:00.000000000</td>
-      <td>-6.753587</td>
-      <td>-1.019847</td>
-      <td>-3.314669</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10 Jun 2016 04:03:00.000000000</td>
-      <td>-6.619858</td>
-      <td>-1.494068</td>
-      <td>-3.403273</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10 Jun 2016 04:04:00.000000000</td>
-      <td>-6.457357</td>
-      <td>-1.961787</td>
-      <td>-3.477042</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>10 Jun 2016 04:05:00.000000000</td>
-      <td>-6.266791</td>
-      <td>-2.420970</td>
-      <td>-3.535655</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>10 Jun 2016 04:06:00.000000000</td>
-      <td>-6.048992</td>
-      <td>-2.869618</td>
-      <td>-3.578857</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>10 Jun 2016 04:07:00.000000000</td>
-      <td>-5.804911</td>
-      <td>-3.305781</td>
-      <td>-3.606460</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>10 Jun 2016 04:08:00.000000000</td>
-      <td>-5.535611</td>
-      <td>-3.727560</td>
-      <td>-3.618345</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10 Jun 2016 04:09:00.000000000</td>
-      <td>-5.242267</td>
-      <td>-4.133124</td>
-      <td>-3.614463</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>10 Jun 2016 04:10:00.000000000</td>
-      <td>-4.926156</td>
-      <td>-4.520707</td>
-      <td>-3.594831</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>10 Jun 2016 04:11:00.000000000</td>
-      <td>-4.588657</td>
-      <td>-4.888626</td>
-      <td>-3.559536</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>10 Jun 2016 04:12:00.000000000</td>
-      <td>-4.231238</td>
-      <td>-5.235283</td>
-      <td>-3.508734</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>10 Jun 2016 04:13:00.000000000</td>
-      <td>-3.855457</td>
-      <td>-5.559171</td>
-      <td>-3.442648</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>10 Jun 2016 04:14:00.000000000</td>
-      <td>-3.462949</td>
-      <td>-5.858884</td>
-      <td>-3.361567</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>10 Jun 2016 04:15:00.000000000</td>
-      <td>-3.055423</td>
-      <td>-6.133121</td>
-      <td>-3.265846</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>10 Jun 2016 04:16:00.000000000</td>
-      <td>-2.634652</td>
-      <td>-6.380693</td>
-      <td>-3.155904</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>10 Jun 2016 04:17:00.000000000</td>
-      <td>-2.202465</td>
-      <td>-6.600526</td>
-      <td>-3.032222</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>10 Jun 2016 04:18:00.000000000</td>
-      <td>-1.760744</td>
-      <td>-6.791666</td>
-      <td>-2.895340</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>10 Jun 2016 04:19:00.000000000</td>
-      <td>-1.311408</td>
-      <td>-6.953287</td>
-      <td>-2.745856</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>10 Jun 2016 04:20:00.000000000</td>
-      <td>-0.856410</td>
-      <td>-7.084688</td>
-      <td>-2.584422</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>10 Jun 2016 04:21:00.000000000</td>
-      <td>-0.397727</td>
-      <td>-7.185302</td>
-      <td>-2.411742</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>10 Jun 2016 04:22:00.000000000</td>
-      <td>0.062647</td>
-      <td>-7.254694</td>
-      <td>-2.228570</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>10 Jun 2016 04:23:00.000000000</td>
-      <td>0.522714</td>
-      <td>-7.292567</td>
-      <td>-2.035705</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>10 Jun 2016 04:24:00.000000000</td>
-      <td>0.980476</td>
-      <td>-7.298758</td>
-      <td>-1.833987</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>10 Jun 2016 04:25:00.000000000</td>
-      <td>1.433944</td>
-      <td>-7.273244</td>
-      <td>-1.624295</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>10 Jun 2016 04:26:00.000000000</td>
-      <td>1.881152</td>
-      <td>-7.216138</td>
-      <td>-1.407543</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>10 Jun 2016 04:27:00.000000000</td>
-      <td>2.320159</td>
-      <td>-7.127692</td>
-      <td>-1.184675</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>10 Jun 2016 04:28:00.000000000</td>
-      <td>2.749060</td>
-      <td>-7.008291</td>
-      <td>-0.956660</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>10 Jun 2016 04:29:00.000000000</td>
-      <td>3.165995</td>
-      <td>-6.858457</td>
-      <td>-0.724493</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1411</th>
-      <td>11 Jun 2016 03:31:00.000000000</td>
-      <td>-3.107458</td>
-      <td>6.918649</td>
-      <td>0.319253</td>
-    </tr>
-    <tr>
-      <th>1412</th>
-      <td>11 Jun 2016 03:32:00.000000000</td>
-      <td>-3.506238</td>
-      <td>6.732572</td>
-      <td>0.080765</td>
-    </tr>
-    <tr>
-      <th>1413</th>
-      <td>11 Jun 2016 03:33:00.000000000</td>
-      <td>-3.889790</td>
-      <td>6.517211</td>
-      <td>-0.158086</td>
-    </tr>
-    <tr>
-      <th>1414</th>
-      <td>11 Jun 2016 03:34:00.000000000</td>
-      <td>-4.256444</td>
-      <td>6.273500</td>
-      <td>-0.396258</td>
-    </tr>
-    <tr>
-      <th>1415</th>
-      <td>11 Jun 2016 03:35:00.000000000</td>
-      <td>-4.604606</td>
-      <td>6.002496</td>
-      <td>-0.632713</td>
-    </tr>
-    <tr>
-      <th>1416</th>
-      <td>11 Jun 2016 03:36:00.000000000</td>
-      <td>-4.932759</td>
-      <td>5.705376</td>
-      <td>-0.866420</td>
-    </tr>
-    <tr>
-      <th>1417</th>
-      <td>11 Jun 2016 03:37:00.000000000</td>
-      <td>-5.239475</td>
-      <td>5.383431</td>
-      <td>-1.096359</td>
-    </tr>
-    <tr>
-      <th>1418</th>
-      <td>11 Jun 2016 03:38:00.000000000</td>
-      <td>-5.523418</td>
-      <td>5.038059</td>
-      <td>-1.321528</td>
-    </tr>
-    <tr>
-      <th>1419</th>
-      <td>11 Jun 2016 03:39:00.000000000</td>
-      <td>-5.783352</td>
-      <td>4.670762</td>
-      <td>-1.540943</td>
-    </tr>
-    <tr>
-      <th>1420</th>
-      <td>11 Jun 2016 03:40:00.000000000</td>
-      <td>-6.018146</td>
-      <td>4.283136</td>
-      <td>-1.753647</td>
-    </tr>
-    <tr>
-      <th>1421</th>
-      <td>11 Jun 2016 03:41:00.000000000</td>
-      <td>-6.226777</td>
-      <td>3.876868</td>
-      <td>-1.958712</td>
-    </tr>
-    <tr>
-      <th>1422</th>
-      <td>11 Jun 2016 03:42:00.000000000</td>
-      <td>-6.408337</td>
-      <td>3.453725</td>
-      <td>-2.155244</td>
-    </tr>
-    <tr>
-      <th>1423</th>
-      <td>11 Jun 2016 03:43:00.000000000</td>
-      <td>-6.562035</td>
-      <td>3.015548</td>
-      <td>-2.342383</td>
-    </tr>
-    <tr>
-      <th>1424</th>
-      <td>11 Jun 2016 03:44:00.000000000</td>
-      <td>-6.687202</td>
-      <td>2.564243</td>
-      <td>-2.519315</td>
-    </tr>
-    <tr>
-      <th>1425</th>
-      <td>11 Jun 2016 03:45:00.000000000</td>
-      <td>-6.783294</td>
-      <td>2.101775</td>
-      <td>-2.685266</td>
-    </tr>
-    <tr>
-      <th>1426</th>
-      <td>11 Jun 2016 03:46:00.000000000</td>
-      <td>-6.849892</td>
-      <td>1.630156</td>
-      <td>-2.839513</td>
-    </tr>
-    <tr>
-      <th>1427</th>
-      <td>11 Jun 2016 03:47:00.000000000</td>
-      <td>-6.886708</td>
-      <td>1.151440</td>
-      <td>-2.981383</td>
-    </tr>
-    <tr>
-      <th>1428</th>
-      <td>11 Jun 2016 03:48:00.000000000</td>
-      <td>-6.893581</td>
-      <td>0.667710</td>
-      <td>-3.110256</td>
-    </tr>
-    <tr>
-      <th>1429</th>
-      <td>11 Jun 2016 03:49:00.000000000</td>
-      <td>-6.870483</td>
-      <td>0.181072</td>
-      <td>-3.225571</td>
-    </tr>
-    <tr>
-      <th>1430</th>
-      <td>11 Jun 2016 03:50:00.000000000</td>
-      <td>-6.817515</td>
-      <td>-0.306356</td>
-      <td>-3.326824</td>
-    </tr>
-    <tr>
-      <th>1431</th>
-      <td>11 Jun 2016 03:51:00.000000000</td>
-      <td>-6.734909</td>
-      <td>-0.792453</td>
-      <td>-3.413574</td>
-    </tr>
-    <tr>
-      <th>1432</th>
-      <td>11 Jun 2016 03:52:00.000000000</td>
-      <td>-6.623026</td>
-      <td>-1.275101</td>
-      <td>-3.485445</td>
-    </tr>
-    <tr>
-      <th>1433</th>
-      <td>11 Jun 2016 03:53:00.000000000</td>
-      <td>-6.482355</td>
-      <td>-1.752202</td>
-      <td>-3.542121</td>
-    </tr>
-    <tr>
-      <th>1434</th>
-      <td>11 Jun 2016 03:54:00.000000000</td>
-      <td>-6.313509</td>
-      <td>-2.221677</td>
-      <td>-3.583357</td>
-    </tr>
-    <tr>
-      <th>1435</th>
-      <td>11 Jun 2016 03:55:00.000000000</td>
-      <td>-6.117225</td>
-      <td>-2.681485</td>
-      <td>-3.608975</td>
-    </tr>
-    <tr>
-      <th>1436</th>
-      <td>11 Jun 2016 03:56:00.000000000</td>
-      <td>-5.894360</td>
-      <td>-3.129625</td>
-      <td>-3.618863</td>
-    </tr>
-    <tr>
-      <th>1437</th>
-      <td>11 Jun 2016 03:57:00.000000000</td>
-      <td>-5.645885</td>
-      <td>-3.564148</td>
-      <td>-3.612978</td>
-    </tr>
-    <tr>
-      <th>1438</th>
-      <td>11 Jun 2016 03:58:00.000000000</td>
-      <td>-5.372883</td>
-      <td>-3.983162</td>
-      <td>-3.591349</td>
-    </tr>
-    <tr>
-      <th>1439</th>
-      <td>11 Jun 2016 03:59:00.000000000</td>
-      <td>-5.076544</td>
-      <td>-4.384848</td>
-      <td>-3.554070</td>
-    </tr>
-    <tr>
-      <th>1440</th>
-      <td>11 Jun 2016 04:00:00.000000000</td>
-      <td>-4.758159</td>
-      <td>-4.767457</td>
-      <td>-3.501306</td>
-    </tr>
-  </tbody>
-</table>
-<p>1441 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[56]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;time&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], dtype=&#39;object&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">=</span><span class="n">sat</span><span class="o">.</span><span class="n">DataProviders</span><span class="o">.</span><span class="n">GetDataPrvTimeVarFromPath</span><span class="p">(</span><span class="s2">&quot;Cartesian Velocity//J2000&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[57]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDataPrvTimeVar)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ALTvelResults</span><span class="o">=</span><span class="n">ALTcartVelJ2000TimeVar</span><span class="o">.</span><span class="n">ExecElements</span><span class="p">(</span><span class="n">sc2</span><span class="o">.</span><span class="n">StartTime</span><span class="p">,</span><span class="n">sc2</span><span class="o">.</span><span class="n">StopTime</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="n">rptElements</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">ALTvelResults</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[58]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>comtypes.POINTER(IAgDrResult)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Close things down for a clean exit.</p>
-<p>(commented out for live use.)</p>
+<h1 id="MATLAB-">MATLAB <img src="images/mathworks.jpg" style=" height: 30px; display: inline-block; margin: 0 auto; " /><a class="anchor-link" href="#MATLAB-">&#182;</a></h1><ul>
+<li>Scientific <strong>Environment</strong><ul>
+<li>Language</li>
+<li>IDE</li>
+</ul>
+</li>
+<li>Dynamicly Typed</li>
+<li>Can bind to COM objects - <span style="background:black; color:white; padding:2px; "> Late-Bound only</span><ul>
+<li><code>app = actxserver('STK11.application');</code></li>
+<li><code>app.UserControl = 1;</code></li>
+<li><code>root=app.Personality2;</code></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#del root; </span>
-<span class="c1">#app.Quit();</span>
-<span class="c1">#del app;</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>PLUS: Awesome at math, matrices, plots &amp; graphs<ul>
+<li>many "specialty" libraries</li>
+</ul>
+</li>
+<li><span style="background:black; color:white; padding:2px; "> MINUS: Working with TEXT is "hard"</span></li>
+<li><span style="background:black; color:white; padding:2px; "> MINUS: "strange" data structures</span><ul>
+<li>struct2cell()</li>
+<li>cell2mat()</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Python-">Python <img src="images/python-logo.png" style=" height: 30px; display: inline-block; margin: 0 auto; " /><a class="anchor-link" href="#Python-">&#182;</a></h1><ul>
+<li>General purpose language</li>
+<li>Scientific <strong>Libraries</strong><ul>
+<li>Numpy <img src="images/numpylogo_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>SciPy <img src="images/scipy_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>SymPy <img src="images/sympy_logo.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>Pandas <img src="images/pandas_badge2.jpg" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>Matplotlib <img src="images/matplotlib_med.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>more...</li>
+</ul>
+</li>
+</ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Multiple IDE's<ul>
+<li>IPython <img src="images/ipython.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>Spyder <img src="images/spyder_bbg.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+<li>Jupyter Notebook <img src="images/jupyter.png" style=" height: 30px; display: inline-block; margin: 0 auto; "/></li>
+</ul>
+</li>
+<li>Dynamicly Typed</li>
+<li>Can bind to COM objects - <strong>Early</strong> or Late-Bound</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Live-Demo">Live Demo<a class="anchor-link" href="#Live-Demo">&#182;</a></h1><p><br/><br/><br/></p>
+<div class="alert alert-success"><p style="text-align: right;"><span style="font-size:xx-large;"> .style: { fingers : crossed };</span></p></div>
+</div>
+</div>
 </div>
     </div>
   </div>
